@@ -71,22 +71,22 @@ export function IntegrationsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="bg-[#0a0a0a] rounded-[2.5rem] overflow-hidden flex flex-col md:flex-row shadow-[0_40px_80px_-20px_rgba(0,0,0,0.3)] relative min-h-[500px]"
+          className="bg-[#0a0a0a] rounded-[2.5rem] overflow-hidden flex flex-col md:flex-row shadow-[0_40px_80px_-20px_rgba(0,0,0,0.3)] relative min-h-[400px] md:min-h-[500px]"
         >
           
-          {/* Left Side: Masked Grid */}
-          <div className="w-full md:w-[55%] relative flex items-center justify-start h-[400px] md:h-[550px] overflow-hidden">
-            {/* The CSS mask creates the smooth fade into black on the right side */}
+          {/* Background/Left Grid */}
+          <div className="w-full md:w-[55%] absolute md:relative inset-0 flex items-center justify-center md:justify-start h-[400px] md:h-[550px] overflow-hidden">
+            {/* The CSS mask creates the smooth fade into black on the right side, DESKTOP ONLY */}
             <div 
-              className="absolute inset-0 z-10 pointer-events-none" 
+              className="hidden md:block absolute inset-0 z-10 pointer-events-none" 
               style={{
                 background: 'linear-gradient(to right, transparent 30%, #0a0a0a 95%)'
               }}
             ></div>
             
-            {/* Oversized container to allow tilt without clipping edges */}
-            <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[150%] transform -rotate-2 scale-110">
-              <div className="flex flex-col gap-4 md:gap-5 -ml-[50%]">
+            {/* Oversized container. On mobile, opacity is reduced so text stands out without a black box */}
+            <div className="absolute top-1/2 left-1/2 md:left-0 -translate-x-1/2 md:-translate-x-0 -translate-y-1/2 w-[250%] sm:w-[200%] md:w-[150%] transform -rotate-2 scale-110 opacity-30 md:opacity-100">
+              <div className="flex flex-col gap-3 md:gap-5 md:-ml-[50%]">
                 <MarqueeRow items={makeLongRow(row1)} duration={35} />
                 <MarqueeRow items={makeLongRow(row2)} reverse duration={45} />
                 <MarqueeRow items={makeLongRow(row3)} duration={40} />
@@ -96,17 +96,17 @@ export function IntegrationsSection() {
             </div>
           </div>
 
-          {/* Right Side: Focus Logo */}
-          <div className="w-full md:w-[45%] flex flex-col items-center justify-center p-12 md:p-16 z-20 relative">
+          {/* Foreground/Right Side */}
+          <div className="w-full md:w-[45%] flex flex-col items-center justify-center p-8 md:p-16 z-20 relative h-[400px] md:h-auto mt-auto md:mt-0">
             {/* Subtle glow behind the logo */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-white/5 rounded-full blur-[80px] pointer-events-none"></div>
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 md:w-64 h-48 md:h-64 bg-white/10 rounded-full blur-[60px] md:blur-[80px] pointer-events-none"></div>
             
             <motion.div 
               initial={{ scale: 0.8, opacity: 0 }}
               whileInView={{ scale: 1, opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4, type: "spring", stiffness: 200, damping: 20 }}
-              className="bg-white w-28 h-28 md:w-[136px] md:h-[136px] rounded-[2rem] flex items-center justify-center mb-10 shadow-[0_0_40px_rgba(255,255,255,0.15)] relative z-10"
+              className="bg-white w-24 h-24 md:w-[136px] md:h-[136px] rounded-[1.5rem] md:rounded-[2rem] flex items-center justify-center mb-6 md:mb-10 shadow-[0_0_30px_rgba(255,255,255,0.2)] relative z-10"
             >
                <img src="/logos/logo-v2.png" alt="LawDesk Logo" className="w-[60%] h-[60%] object-contain drop-shadow-sm" />
             </motion.div>
@@ -116,7 +116,7 @@ export function IntegrationsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.6 }}
-              className="text-[#f9f8f6] text-[1.75rem] md:text-[2rem] font-bold text-center leading-[1.2] max-w-[320px] tracking-tight relative z-10"
+              className="text-[#f9f8f6] text-[1.5rem] md:text-[2rem] font-bold text-center leading-[1.2] max-w-[280px] md:max-w-[320px] tracking-tight relative z-10 drop-shadow-md"
             >
               Streamline your workflow with a single, unified platform.
             </motion.h3>

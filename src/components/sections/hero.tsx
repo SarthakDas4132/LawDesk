@@ -21,77 +21,18 @@ export function HeroSection() {
   // Parallax for dashboard so it scrolls slower
   const dashboardY = useTransform(scrollY, [0, 800], [0, 200])
 
-  // Statues moving out on scroll
-  const leftStatueX = useTransform(scrollY, [0, 1000], [0, -300])
-  const rightStatueX = useTransform(scrollY, [0, 1000], [0, 300])
-  const statueY = useTransform(scrollY, [0, 1000], [0, 100])
+
 
   return (
-    <section className="relative pt-32 md:pt-48 pb-24 md:pb-40 flex flex-col items-center justify-center bg-[url('/bg.jpeg')] bg-cover bg-center z-0 overflow-hidden">
+    <section className="relative pt-28 pb-12 md:min-h-screen md:pt-48 md:pb-40 flex flex-col items-center justify-center z-0 overflow-hidden bg-[#faf8f5]">
+      {/* Static Background */}
+      <div 
+        className="absolute inset-0 z-[-1] bg-[url('/courtroom2.jpeg')] bg-cover bg-[center_85%] bg-no-repeat pointer-events-none"
+      />
       
-      {/* Cloud left */}
-      <motion.div 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.9 }}
-        transition={{ duration: 1.5, ease: "easeOut" }}
-        className="absolute left-[-5%] top-[10%] pointer-events-none opacity-80"
-      >
-        <motion.img 
-          animate={{ y: [0, -15, 0] }}
-          transition={{ repeat: Infinity, duration: 10, ease: "easeInOut" }}
-          src="/cloud-2.png" 
-          alt="Cloud" 
-          className="w-[500px] object-contain"
-        />
-      </motion.div>
 
-      {/* Cloud right */}
-      <motion.div 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.9 }}
-        transition={{ duration: 1.5, ease: "easeOut" }}
-        className="absolute right-[-5%] top-[5%] pointer-events-none opacity-80"
-      >
-        <motion.img 
-          animate={{ y: [0, 15, 0] }}
-          transition={{ repeat: Infinity, duration: 12, ease: "easeInOut", delay: 1 }}
-          src="/cloud-2.png" 
-          alt="Cloud" 
-          className="w-[600px] object-contain"
-        />
-      </motion.div>
 
-      {/* Background fade overlay to blend into the next section */}
-      <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#f9f8f6] to-transparent z-0 pointer-events-none"></div>
 
-      {/* Statues */}
-      <motion.div 
-        style={{ x: leftStatueX, y: statueY }}
-        className="absolute left-[-20%] md:left-[-10%] lg:-left-[2%] top-[20vh] md:top-[30vh] lg:top-[35vh] z-20 pointer-events-none opacity-25 md:opacity-100"
-      >
-        <motion.img 
-          initial={{ opacity: 0, x: -150 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1.5, ease: "easeOut", delay: 0.2 }}
-          src="/statue-left.png" 
-          alt="Lady Justice Statue Left" 
-          className="w-[110px] md:w-[350px] lg:w-[450px] object-contain drop-shadow-2xl"
-        />
-      </motion.div>
-
-      <motion.div 
-        style={{ x: rightStatueX, y: statueY }}
-        className="absolute right-[-20%] md:right-[-10%] lg:-right-[2%] top-[20vh] md:top-[30vh] lg:top-[35vh] z-20 pointer-events-none opacity-25 md:opacity-100"
-      >
-        <motion.img 
-          initial={{ opacity: 0, x: 150 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1.5, ease: "easeOut", delay: 0.2 }}
-          src="/statue-right.png" 
-          alt="Lady Justice Statue Right" 
-          className="w-[110px] md:w-[350px] lg:w-[450px] object-contain drop-shadow-2xl"
-        />
-      </motion.div>
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center max-w-4xl mx-auto flex flex-col items-center">
@@ -123,7 +64,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
-            className="flex flex-col sm:flex-row items-stretch justify-center gap-4 mb-10 md:mb-20 w-full"
+            className="flex flex-col sm:flex-row items-stretch justify-center gap-4 mb-8 md:mb-20 w-full"
           >
             <Link 
               href="/contact-us" 
@@ -140,13 +81,29 @@ export function HeroSection() {
           </motion.div>
         </div>
 
-        {/* Dashboard 3D Standup Image */}
+        {/* Mobile Static Dashboard (No Parallax) */}
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="md:hidden w-full max-w-5xl mx-auto mt-2 px-1"
+        >
+          <div className="w-full bg-white rounded-2xl shadow-xl overflow-hidden border border-white/40">
+            <img 
+              src="/hero-dashboard.jpeg" 
+              alt="Platform Dashboard" 
+              className="w-full h-auto object-cover block"
+            />
+          </div>
+        </motion.div>
+
+        {/* Desktop 3D Standup Image */}
         <motion.div 
           ref={containerRef}
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-          className="w-full max-w-5xl mx-auto perspective-[1200px]"
+          className="hidden md:block w-full max-w-5xl mx-auto perspective-[1200px]"
         >
           <motion.div
             style={{ 

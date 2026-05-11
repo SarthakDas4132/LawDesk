@@ -1,10 +1,17 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 
 export function ShowcaseSection() {
   const [device, setDevice] = useState<"desktop" | "mobile">("desktop")
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setDevice((prev) => (prev === "desktop" ? "mobile" : "desktop"))
+    }, 3000)
+    return () => clearInterval(interval)
+  }, [])
 
   return (
     <section className="py-24 bg-[#f9f8f6] overflow-hidden">
