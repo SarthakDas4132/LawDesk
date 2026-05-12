@@ -41,11 +41,11 @@ export function Navbar() {
           </motion.div>
           
           <motion.nav layout transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }} className="hidden md:flex items-center gap-8">
-            <a href="#features" className="text-[15px] font-medium text-[#111827] hover:opacity-70 transition-opacity">Features</a>
-            <a href="#benefits" className="text-[15px] font-medium text-[#111827] hover:opacity-70 transition-opacity">Benefits</a>
-            <a href="#pricing" className="text-[15px] font-medium text-[#111827] hover:opacity-70 transition-opacity">Pricing</a>
-            <a href="/blog" className="text-[15px] font-medium text-[#111827] hover:opacity-70 transition-opacity">Blog</a>
-            <a href="/contact-us" className="text-[15px] font-medium text-[#111827] hover:opacity-70 transition-opacity">Contact Us</a>
+            <Link href="/#features" className="text-[15px] font-medium text-[#111827] hover:opacity-70 transition-opacity">Features</Link>
+            <Link href="/#benefits" className="text-[15px] font-medium text-[#111827] hover:opacity-70 transition-opacity">Benefits</Link>
+            <Link href="/#pricing" className="text-[15px] font-medium text-[#111827] hover:opacity-70 transition-opacity">Pricing</Link>
+            <Link href="/blog" className="text-[15px] font-medium text-[#111827] hover:opacity-70 transition-opacity">Blog</Link>
+            <Link href="/contact-us" className="text-[15px] font-medium text-[#111827] hover:opacity-70 transition-opacity">Contact Us</Link>
           </motion.nav>
 
           <motion.div layout transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }} className="hidden md:flex items-center">
@@ -72,32 +72,32 @@ export function Navbar() {
             initial={{ opacity: 0, y: -20, filter: "blur(10px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             exit={{ opacity: 0, y: -20, filter: "blur(10px)" }}
-            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed inset-x-4 top-4 bottom-4 z-40 md:hidden flex flex-col items-center justify-center bg-white/70 backdrop-blur-3xl rounded-[2.5rem] border border-white/60 shadow-2xl p-8"
+            transition={{ duration: 0.3, ease: "easeOut" }}
+            className="fixed left-4 right-4 top-24 z-40 md:hidden flex flex-col items-center bg-white/95 backdrop-blur-3xl rounded-[2rem] border border-[#e5e0d8] shadow-2xl p-6"
           >
-            <nav className="flex flex-col items-center gap-6 mb-12 w-full">
-              <a href="#features" onClick={() => setIsOpen(false)} className="text-[17px] font-medium text-[#111827]">Features</a>
-              <a href="#benefits" onClick={() => setIsOpen(false)} className="text-[17px] font-medium text-[#111827]">Benefits</a>
-              <a href="#pricing" onClick={() => setIsOpen(false)} className="text-[17px] font-medium text-[#111827]">Pricing</a>
-              <a href="/blog" onClick={() => setIsOpen(false)} className="text-[17px] font-medium text-[#111827]">Blog</a>
-              <a href="/contact-us" onClick={() => setIsOpen(false)} className="text-[17px] font-medium text-[#111827]">Contact Us</a>
+            <nav className="flex flex-col items-center gap-5 mb-8 w-full">
+              <Link href="/#features" onClick={() => setIsOpen(false)} className="text-[16px] font-bold text-[#4b5563] hover:text-[#111827]">Features</Link>
+              <Link href="/#benefits" onClick={() => setIsOpen(false)} className="text-[16px] font-bold text-[#4b5563] hover:text-[#111827]">Benefits</Link>
+              <Link href="/#pricing" onClick={() => setIsOpen(false)} className="text-[16px] font-bold text-[#4b5563] hover:text-[#111827]">Pricing</Link>
+              <Link href="/blog" onClick={() => setIsOpen(false)} className="text-[16px] font-bold text-[#4b5563] hover:text-[#111827]">Blog</Link>
+              <Link href="/contact-us" onClick={() => setIsOpen(false)} className="text-[16px] font-bold text-[#4b5563] hover:text-[#111827]">Contact Us</Link>
             </nav>
 
-            <div className="flex flex-col gap-4 w-full max-w-[280px]">
+            <div className="flex flex-col gap-3 w-full max-w-[280px]">
               <Link 
                 href="/contact-us" 
                 onClick={() => setIsOpen(false)}
-                className="bg-[#1a1818] text-white text-[17px] font-bold px-8 py-4 rounded-full text-center w-full shadow-lg"
+                className="bg-[#1a1818] text-white text-[15px] font-bold px-6 py-3.5 rounded-full text-center w-full shadow-lg"
               >
                 Try LawDesk free
               </Link>
-              <a 
-                href="#features" 
+              <Link 
+                href="/#features" 
                 onClick={() => setIsOpen(false)}
-                className="bg-white/40 text-[#111827] text-[17px] font-bold px-8 py-4 rounded-full text-center w-full border border-white/50 backdrop-blur-md"
+                className="bg-[#f4efe9] hover:bg-[#eaddce] transition-colors text-[#111827] text-[15px] font-bold px-6 py-3.5 rounded-full text-center w-full"
               >
                 See features
-              </a>
+              </Link>
             </div>
           </motion.div>
         )}

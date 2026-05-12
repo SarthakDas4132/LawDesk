@@ -2,7 +2,7 @@ import Link from "next/link"
 
 export function Footer() {
   return (
-    <footer className="bg-[#d5e4f2] pt-32 pb-12">
+    <footer className="bg-[#f9f8f6] pt-16 md:pt-24 pb-12">
       <div className="container mx-auto px-6 max-w-5xl">
         
         {/* CTA Section */}
@@ -22,15 +22,15 @@ export function Footer() {
         </div>
 
         {/* Footer Box */}
-        <div className="bg-[#e2eaf4] rounded-[2rem] p-10 md:p-16 border border-white/40 shadow-sm relative">
+        <div className="bg-[#f2f0ea] rounded-[2rem] p-10 md:p-16 border border-[#e5e0d8] shadow-sm relative">
           <div className="flex flex-col md:flex-row justify-between mb-16 gap-12">
             
             {/* Left Side */}
             <div>
-              <a href="/" className="flex items-center gap-2 mb-4 text-[#111827] font-bold text-xl tracking-tight">
+              <Link href="/" className="flex items-center gap-2 mb-4 text-[#111827] font-bold text-xl tracking-tight">
                 <img src="/logo.png" alt="LawDesk" className="h-8 w-auto" />
                 LawDesk
-              </a>
+              </Link>
               <p className="text-[#4b5563] mb-8 text-[15px]">
                 Made for modern legal teams.
               </p>
@@ -50,26 +50,26 @@ export function Footer() {
               <div>
                 <h4 className="text-[#111827] font-bold mb-6 text-xs uppercase tracking-wider">Pages</h4>
                 <ul className="space-y-4">
-                  <li><a href="/" className="text-[#4b5563] hover:text-[#111827] transition-colors text-[14px] font-medium">Home</a></li>
-                  <li><a href="#features" className="text-[#4b5563] hover:text-[#111827] transition-colors text-[14px] font-medium">Features</a></li>
-                  <li><a href="#pricing" className="text-[#4b5563] hover:text-[#111827] transition-colors text-[14px] font-medium">Pricing</a></li>
-                  <li><a href="/blog" className="text-[#4b5563] hover:text-[#111827] transition-colors text-[14px] font-medium">Blog</a></li>
+                  <li><Link href="/" className="text-[#4b5563] hover:text-[#111827] transition-colors text-[14px] font-medium">Home</Link></li>
+                  <li><Link href="/#features" className="text-[#4b5563] hover:text-[#111827] transition-colors text-[14px] font-medium">Features</Link></li>
+                  <li><Link href="/#pricing" className="text-[#4b5563] hover:text-[#111827] transition-colors text-[14px] font-medium">Pricing</Link></li>
+                  <li><Link href="/blog" className="text-[#4b5563] hover:text-[#111827] transition-colors text-[14px] font-medium">Blog</Link></li>
                 </ul>
               </div>
 
               <div>
                 <h4 className="text-[#111827] font-bold mb-6 text-xs uppercase tracking-wider">Information</h4>
                 <ul className="space-y-4">
-                  <li><a href="/contact-us" className="text-[#4b5563] hover:text-[#111827] transition-colors text-[14px] font-medium">Contact</a></li>
-                  <li><a href="/privacy-policy" className="text-[#4b5563] hover:text-[#111827] transition-colors text-[14px] font-medium">Privacy</a></li>
-                  <li><a href="/terms-of-use" className="text-[#4b5563] hover:text-[#111827] transition-colors text-[14px] font-medium">Terms of use</a></li>
-                  <li><a href="/404" className="text-[#4b5563] hover:text-[#111827] transition-colors text-[14px] font-medium">404</a></li>
+                  <li><Link href="/contact-us" className="text-[#4b5563] hover:text-[#111827] transition-colors text-[14px] font-medium">Contact</Link></li>
+                  <li><Link href="/privacy-policy" className="text-[#4b5563] hover:text-[#111827] transition-colors text-[14px] font-medium">Privacy</Link></li>
+                  <li><Link href="/terms-of-use" className="text-[#4b5563] hover:text-[#111827] transition-colors text-[14px] font-medium">Terms of use</Link></li>
+                  <li><Link href="/404" className="text-[#4b5563] hover:text-[#111827] transition-colors text-[14px] font-medium">404</Link></li>
                 </ul>
               </div>
             </div>
           </div>
 
-          <div className="pt-8 border-t border-[#d1dce8]">
+          <div className="pt-8 border-t border-[#e5e0d8]">
             <p className="text-[#6b7280] text-sm">
               © 2026 Lawdesk. All rights reserved.
             </p>

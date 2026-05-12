@@ -14,7 +14,7 @@ export function ShowcaseSection() {
   }, [])
 
   return (
-    <section className="py-24 bg-[#f9f8f6] overflow-hidden">
+    <section className="pt-16 md:pt-24 pb-12 bg-[#f9f8f6] overflow-hidden hidden md:block">
       <div className="container mx-auto px-6 text-center flex flex-col items-center">
         
         <motion.div 
@@ -37,31 +37,26 @@ export function ShowcaseSection() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="relative w-full max-w-5xl h-[350px] sm:h-[450px] md:h-[700px] rounded-3xl md:rounded-[2rem] overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,0,0,0.3)] bg-[#f9f8f6] border border-black/5"
         >
-          <AnimatePresence mode="popLayout">
-            {device === "desktop" ? (
-              <motion.img
-                key="desktop"
-                initial={{ opacity: 0, scale: 0.96 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 1.04 }}
-                transition={{ duration: 0.5, ease: "easeInOut" }}
-                src="/web-original.jpeg"
-                alt="Web App"
-                className="absolute inset-0 w-full h-full object-cover object-top"
-              />
-            ) : (
-              <motion.img
-                key="mobile"
-                initial={{ opacity: 0, scale: 0.96 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 1.04 }}
-                transition={{ duration: 0.5, ease: "easeInOut" }}
-                src="/mobile-original.jpeg"
-                alt="Mobile App"
-                className="absolute inset-0 w-full h-full object-cover object-top"
-              />
-            )}
-          </AnimatePresence>
+          <div className="absolute inset-0 w-full h-full">
+            <motion.img
+              initial={false}
+              animate={{ opacity: device === "desktop" ? 1 : 0, scale: device === "desktop" ? 1 : 1.04 }}
+              transition={{ duration: 0.5, ease: "easeInOut" }}
+              src="/web-original.jpeg"
+              alt="Web App"
+              className="absolute inset-0 w-full h-full object-cover object-top"
+              style={{ pointerEvents: device === "desktop" ? "auto" : "none" }}
+            />
+            <motion.img
+              initial={false}
+              animate={{ opacity: device === "mobile" ? 1 : 0, scale: device === "mobile" ? 1 : 1.04 }}
+              transition={{ duration: 0.5, ease: "easeInOut" }}
+              src="/mobile-original.jpeg"
+              alt="Mobile App"
+              className="absolute inset-0 w-full h-full object-cover object-top"
+              style={{ pointerEvents: device === "mobile" ? "auto" : "none" }}
+            />
+          </div>
 
           {/* Floating blur toggle over the image */}
           <div className="absolute bottom-8 left-1/2 -translate-x-1/2 pointer-events-auto">

@@ -8,18 +8,18 @@ export function PricingSection() {
   const [billing, setBilling] = useState<"Annually" | "Monthly">("Annually")
 
   return (
-    <section id="pricing" className="py-32 bg-[#eff3f8]">
+    <section id="pricing" className="py-16 md:py-24 bg-[#eff3f8]">
       <div className="container mx-auto px-6 max-w-6xl">
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 md:mb-20">
           <h2 className="text-4xl md:text-5xl font-bold text-[#111827] tracking-tight leading-[1.1]">
             Simple plans<br/>for serious work
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6 items-center">
+        <div className="grid md:grid-cols-3 gap-10 md:gap-8 items-center">
           
           {/* Basic Plan */}
-          <div className="bg-[#f2f0ea] rounded-[2rem] p-10 flex flex-col h-full hover:shadow-xl transition-shadow border border-[#e5e0d8]">
+          <div className="bg-[#f2f0ea] rounded-[2rem] p-6 md:p-10 flex flex-col h-full hover:shadow-xl transition-shadow border border-[#e5e0d8]">
             <h3 className="text-[17px] font-bold text-[#4b5563] mb-2">LawDesk Basic</h3>
             <div className="text-4xl font-bold text-[#111827] mb-6">Free</div>
             <p className="text-[#6b7280] mb-8 text-[15px]">For solo use with light needs.</p>
@@ -38,7 +38,7 @@ export function PricingSection() {
           </div>
 
           {/* Premium - WITH TOGGLE */}
-          <div className="bg-[#d2e5f9] rounded-[2rem] p-2 border-2 border-[#82b8f4] shadow-xl relative scale-105 z-10">
+          <div className="bg-[#d2e5f9] rounded-[2rem] p-2 border-2 border-[#82b8f4] shadow-xl relative md:scale-105 z-10">
             
             {/* Toggle inside the top padding */}
             <div className="flex justify-center mb-6 mt-4">
@@ -63,7 +63,7 @@ export function PricingSection() {
               </div>
             </div>
 
-            <div className="px-8 pb-8 pt-2">
+            <div className="px-6 md:px-8 pb-6 md:pb-8 pt-2">
               <div className="flex items-center gap-3">
                 <h3 className="text-[17px] font-bold text-[#4b5563]">LawDesk Premium</h3>
                 <span className="bg-[#bdf0ce] text-[#0d6a2f] text-[10px] font-bold px-3 py-1 rounded-full border border-[#a2deb6]">
@@ -88,7 +88,7 @@ export function PricingSection() {
           </div>
 
           {/* Enterprise Plan */}
-          <div className="bg-[#f2f0ea] rounded-[2rem] p-10 flex flex-col h-full hover:shadow-xl transition-shadow border border-[#e5e0d8]">
+          <div className="bg-[#f2f0ea] rounded-[2rem] p-6 md:p-10 flex flex-col h-full hover:shadow-xl transition-shadow border border-[#e5e0d8]">
             <h3 className="text-[17px] font-bold text-[#4b5563] mb-2">LawDesk Enterprise</h3>
             <div className="text-4xl font-bold text-[#111827] mb-6">Flexible</div>
             <p className="text-[#6b7280] mb-8 text-[15px]">For team use with light needs.</p>

@@ -37,28 +37,13 @@ export function HeroSection() {
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center max-w-4xl mx-auto flex flex-col items-center">
           
-          <motion.h1
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
-            className="text-[2.1rem] sm:text-[3.5rem] md:text-[5.5rem] leading-[1.1] font-bold text-[#111827] mb-6 md:mb-8 tracking-tight"
-          >
-            The Complete<br className="block md:hidden" />
-            <span className="hidden md:inline"> Legal</span><br className="hidden md:block" />
-            <span className="md:hidden"> Legal Workspace.</span><span className="hidden md:inline">Workspace.</span><br />
-            Zero Distractions.
-          </motion.h1>
+          <h1 className="text-[2.1rem] sm:text-[3.5rem] md:text-[5.5rem] leading-[1.1] font-bold text-[#111827] mb-6 md:mb-8 tracking-tight" style={{ opacity: 1, transform: "none" }}>
+            All-in-One<br className="block md:hidden"/><span className="hidden md:inline"> Legal Case</span><br className="hidden md:block"/><span className="md:hidden"> Legal Case</span><span className="hidden md:inline">Workspace.</span><br/>Management
+          </h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
-            className="text-lg md:text-[22px] text-[#374151] mb-10 md:mb-12 max-w-[800px] leading-relaxed font-medium px-4 md:px-0"
-          >
-            The all-in-one legal platform that brings algorithmic matchmaking,<br className="hidden md:block"/>
-            confidential messaging, and task management into a single,<br className="hidden md:block"/>
-            secure dashboard.
-          </motion.p>
+          <p className="text-lg md:text-[22px] text-[#374151] mb-10 md:mb-12 max-w-[800px] leading-relaxed font-medium px-4 md:px-0" style={{ opacity: 1, transform: "none" }}>
+            AI powered matter management for smarter law firms<br className="hidden md:block"/><br className="hidden md:block"/>
+          </p>
 
           <motion.div
             initial={{ opacity: 0, y: 15 }}
@@ -81,21 +66,7 @@ export function HeroSection() {
           </motion.div>
         </div>
 
-        {/* Mobile Static Dashboard (No Parallax) */}
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="md:hidden w-full max-w-5xl mx-auto mt-2 px-1"
-        >
-          <div className="w-full bg-white rounded-2xl shadow-xl overflow-hidden border border-white/40">
-            <img 
-              src="/hero-dashboard.jpeg" 
-              alt="Platform Dashboard" 
-              className="w-full h-auto object-cover block"
-            />
-          </div>
-        </motion.div>
+
 
         {/* Desktop 3D Standup Image */}
         <motion.div 

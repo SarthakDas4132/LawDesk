@@ -43,7 +43,7 @@ const MarqueeRow = ({ items, reverse, duration }: { items: string[], reverse?: b
 
 export function IntegrationsSection() {
   return (
-    <section className="py-24 bg-[#f9f8f6]">
+    <section className="py-16 md:py-24 bg-[#f9f8f6]">
       <div className="container mx-auto px-6 max-w-5xl">
         
         <div className="text-center mb-16">
