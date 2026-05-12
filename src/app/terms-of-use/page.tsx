@@ -1,10 +1,6 @@
-import { Navbar } from "@/components/layout/navbar";
-import { Footer } from "@/components/layout/footer";
-
 export default function TermsOfUse() {
   return (
     <div className="bg-white min-h-screen flex flex-col">
-      <Navbar />
       <main className="flex-1 pt-32 pb-24 px-6 md:px-12 max-w-4xl mx-auto w-full">
         <h1 className="text-4xl md:text-5xl font-bold text-[#111827] tracking-tight mb-8">
           Terms and Conditions
@@ -82,7 +78,6 @@ export default function TermsOfUse() {
           </section>
         </div>
       </main>
-      <Footer />
     </div>
   );
 }
