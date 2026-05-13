@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   // @ts-ignore - Next.js internal/experimental option requested by error
-  allowedDevOrigins: ['10.10.0.16'],
+  allowedDevOrigins: ['http://192.168.1.10:3000'],
   async redirects() {
     return [
       {

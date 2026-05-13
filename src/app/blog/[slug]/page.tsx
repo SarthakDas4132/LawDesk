@@ -43,10 +43,10 @@ export default async function BlogPostPage({
             
             <div className="flex items-center justify-center gap-3 mt-6 md:mt-8">
               <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-tr from-amber-200 to-amber-600 flex items-center justify-center text-white font-bold text-base md:text-lg">
-                LD
+                LR
               </div>
               <div className="text-left">
-                <p className="text-sm md:text-base font-bold text-[#111827]">LawDesk Editorial</p>
+                <p className="text-sm md:text-base font-bold text-[#111827]">LegalRobe Editorial</p>
                 <p className="text-xs md:text-sm text-[#6b7280]">Legal Tech Insights</p>
               </div>
             </div>

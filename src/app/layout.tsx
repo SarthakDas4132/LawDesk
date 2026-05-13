@@ -8,8 +8,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "LawDesk - The Complete Legal Workspace",
-  description: "Simple, modern, and sleek. LawDesk is perfect for legal teams.",
+  title: "LegalRobe - The Complete Legal Workspace",
+  description: "Simple, modern, and sleek. LegalRobe is perfect for legal teams.",
 };
 
 import { LenisProvider } from "@/components/lenis-provider";

@@ -14,7 +14,7 @@ export default function TermsOfUse() {
           <section>
             <h2 className="text-2xl font-bold text-[#111827] mb-4">1. Introduction</h2>
             <p className="text-[17px] leading-relaxed">
-              Welcome to LawDesk. These Terms and Conditions govern your use of our website and platform. 
+              Welcome to LegalRobe. These Terms and Conditions govern your use of our website and platform. 
               By accessing or using our services, you agree to be bound by these terms. If you disagree 
               with any part of the terms, you may not access the service.
             </p>
@@ -44,17 +44,17 @@ export default function TermsOfUse() {
             <h2 className="text-2xl font-bold text-[#111827] mb-4">4. Intellectual Property</h2>
             <p className="text-[17px] leading-relaxed">
               The service and its original content, features, and functionality are and will remain the 
-              exclusive property of LawDesk and its licensors. The service is protected by copyright, 
+              exclusive property of LegalRobe and its licensors. The service is protected by copyright, 
               trademark, and other laws of both the United States and foreign countries. Our trademarks 
               and trade dress may not be used in connection with any product or service without the prior 
-              written consent of LawDesk.
+              written consent of LegalRobe.
             </p>
           </section>
 
           <section>
             <h2 className="text-2xl font-bold text-[#111827] mb-4">5. Limitation of Liability</h2>
             <p className="text-[17px] leading-relaxed">
-              In no event shall LawDesk, nor its directors, employees, partners, agents, suppliers, or 
+              In no event shall LegalRobe, nor its directors, employees, partners, agents, suppliers, or 
               affiliates, be liable for any indirect, incidental, special, consequential or punitive damages, 
               including without limitation, loss of profits, data, use, goodwill, or other intangible losses, 
               resulting from your access to or use of or inability to access or use the service.
@@ -73,7 +73,7 @@ export default function TermsOfUse() {
           <section>
             <h2 className="text-2xl font-bold text-[#111827] mb-4">7. Contact Us</h2>
             <p className="text-[17px] leading-relaxed">
-              If you have any questions about these Terms, please contact us at support@lawdesk.com.
+              If you have any questions about these Terms, please contact us at support@legalrobe.com.
             </p>
           </section>
         </div>

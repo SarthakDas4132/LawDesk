@@ -53,7 +53,7 @@ export default function BlogPage() {
                         <Image src="/logo.png" alt="Author" width={24} height={24} className="opacity-80" />
                       </div>
                       <div>
-                        <p className="text-xs md:text-sm font-bold text-[#111827]">LawDesk Editorial</p>
+                        <p className="text-xs md:text-sm font-bold text-[#111827]">LegalRobe Editorial</p>
                         <p className="text-[10px] md:text-xs text-[#6b7280]">Legal Tech Insights</p>
                       </div>
                     </div>

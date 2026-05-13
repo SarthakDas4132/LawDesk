@@ -5,48 +5,40 @@ import { motion, useScroll, useTransform } from "framer-motion"
 
 const features = [
   {
-    title: "End-to-End Matter Management",
-    description: "Manage every legal case from initial intake to completion with clear case stages, court details, opposition party information, and next hearing dates."
+    title: "AI Legal Assistant",
+    description: "Helps lawyers quickly find case details, summarize updates, answer internal questions, and manage legal work more efficiently using AI."
   },
   {
-    title: "Smart Hearing & Deadline Tracking",
-    description: "Track upcoming hearings, important dates, and case deadlines in one place to reduce missed follow-ups and improve firm discipline."
+    title: "AI Case File Summarization",
+    description: "Quickly converts long case files, documents, and notes into clear summaries so lawyers can understand key details faster."
   },
   {
-    title: "Success & Strategy Knowledge Base",
-    description: "Store case outcomes, resolution notes, legal arguments, and winning strategies so your firm's past experience becomes useful for future cases."
+    title: "AI Case Memory & New Case Assistance",
+    description: "Keeps past closed case records as a reference and helps organize new case files with relevant details, documents, and summaries."
   },
   {
-    title: "Intelligent Counsel Finder",
-    description: "Find the right lawyer for a new matter based on past case experience, success history, legal category, and relevant resolution notes."
+    title: "Case Management",
+    description: "Add, edit, and organise all your cases in one centralised dashboard. Filter by court, status, date, or client with a single tap."
   },
   {
-    title: "AI-Powered Case Briefing",
-    description: "Upload long client complaints or case documents and get a short, clear summary of the key issues to save time during review."
+    title: "Hearing Tracker",
+    description: "Never miss a hearing date. LegalRobe tracks all upcoming and past hearings with a smart calendar view and status updates."
   },
   {
-    title: "Role-Based Workspace",
-    description: "Give separate access to admins, senior lawyers, junior lawyers, interns, and clients with permissions based on their role."
+    title: "Client Directory",
+    description: "Maintain a complete directory of all your clients, linked to their respective cases. Quick search and one-tap calling built in."
   },
   {
-    title: "Client Portal",
-    description: "Allow clients to securely view case status, hearing updates, and progress without accessing internal firm notes or strategy details."
+    title: "Document Storage",
+    description: "Attach petitions, evidence files, and court orders directly to each case. Access them offline whenever you need them in court. Supports Google Drive Backup."
   },
   {
-    title: "Firm Performance Dashboard",
-    description: "Monitor ongoing cases, completed cases, win/loss ratio, legal categories, lawyer workload, and overall firm performance from one dashboard."
-  },
-  {
-    title: "Case Outcome Tracking",
-    description: "Mark matters as won, lost, settled, dismissed, or pending, and maintain a clear history of every case result."
-  },
-  {
-    title: "Secure Legal Data Management",
-    description: "Keep sensitive case information, client records, court details, and internal notes organized in a secure digital system."
+    title: "Secure, Private & Cloud Backup",
+    description: "Your case data is encrypted at rest and in transit. All your data is automatically backed up to the cloud so you can access your cases from any device without losing a single record."
   }
 ]
 
-function FeatureBlock({ feature, index }: { feature: typeof features[0], index: number }) {
+function FeatureBlock({ feature, index, isLast }: { feature: typeof features[0], index: number, isLast?: boolean }) {
   const ref = useRef<HTMLDivElement>(null)
   
   // Track scroll position for opacity/y animation
@@ -71,11 +63,11 @@ function FeatureBlock({ feature, index }: { feature: typeof features[0], index: 
   const textColor = useTransform(dotProgress, [0, 0.1], ["#9ca3af", "#ffffff"])
 
   return (
-    <div ref={ref} className="py-12 md:py-24 relative group">
+    <div ref={ref} className={`pt-8 md:pt-16 ${isLast ? 'pb-0' : 'pb-8 md:pb-16'} relative group`}>
       
       {/* Circle on the progress line */}
       <motion.div 
-        className="absolute left-0 top-[48px] md:top-[102px] w-10 h-10 rounded-full border-2 flex items-center justify-center -ml-[19px] z-10 text-[12px] font-bold shadow-sm"
+        className="absolute left-0 top-[32px] md:top-[70px] w-10 h-10 rounded-full border-2 flex items-center justify-center -ml-[19px] z-10 text-[12px] font-bold shadow-sm"
         style={{ 
           borderColor: dotBorder, 
           backgroundColor: dotBg, 
@@ -84,6 +76,11 @@ function FeatureBlock({ feature, index }: { feature: typeof features[0], index: 
       >
         {String(index + 1).padStart(2, '0')}
       </motion.div>
+
+      {/* Mask to hide the progress line below the last circle */}
+      {index === 7 && (
+        <div className="absolute left-0 -ml-[2px] top-[52px] md:top-[90px] bottom-0 w-1 bg-[#f9f8f6] z-[5]" />
+      )}
 
       {/* Content Block */}
       <motion.div style={{ opacity, y }} className="pl-12 md:pl-20">
@@ -108,14 +105,20 @@ export function FeaturesSection() {
     offset: ["start center", "end center"]
   })
 
+  // Fade out title at the very end
+  const titleOpacity = useTransform(scrollYProgress, [0.8, 0.95], [1, 0])
+
   return (
     <section id="features" className="py-24 md:py-40 bg-[#f9f8f6] relative">
-      <div className="container mx-auto px-6 max-w-7xl relative">
+      <div className="container mx-auto px-6 max-w-5xl relative">
         
         <div ref={containerRef} className="flex flex-col md:flex-row gap-12 md:gap-32 relative items-start">
           
           {/* Left Column: Sticky Title */}
-          <div className="w-full md:w-[35%] md:sticky md:top-40 flex flex-col justify-center mb-8 md:mb-0">
+          <motion.div 
+            style={{ opacity: titleOpacity }}
+            className="w-full md:w-[35%] md:sticky md:top-40 self-start mb-8 md:mb-0"
+          >
             <h3 className="text-[#8c8273] font-bold tracking-widest uppercase text-xs mb-4">
               Our Process
             </h3>
@@ -123,25 +126,25 @@ export function FeaturesSection() {
               Your Firm.<br />Your Intelligence.
             </h2>
             <p className="text-[17px] md:text-[1.2rem] text-[#4b5563] leading-relaxed max-w-sm">
-              Design the ideal workflow for your needs and LawDesk handles the rest for you automatically.
+              Design the ideal workflow for your needs and LegalRobe handles the rest for you automatically.
             </p>
-          </div>
+          </motion.div>
 
           {/* Right Column: Scrolling Feature List */}
           <div className="w-full md:w-[65%] relative">
              
              {/* Progress Line Container */}
-             <div className="absolute left-0 top-12 bottom-12 w-[2px] bg-[#e5e7eb]">
-               {/* Filling Progress Line */}
-               <motion.div 
-                 className="absolute left-0 top-0 bottom-0 w-[2px] bg-[#111827] origin-top rounded-full shadow-lg"
-                 style={{ scaleY: scrollYProgress }}
-               />
-             </div>
+              <div className="absolute left-0 top-[52px] md:top-[90px] bottom-0 w-[2px] bg-[#e5e7eb] z-0">
+                {/* Filling Progress Line (Black) */}
+                <motion.div 
+                  className="absolute left-0 top-0 bottom-0 w-full bg-[#111827] origin-top rounded-full"
+                  style={{ scaleY: scrollYProgress }}
+                />
+              </div>
 
              <div className="w-full">
               {features.map((feature, i) => (
-                <FeatureBlock key={i} feature={feature} index={i} />
+                <FeatureBlock key={i} feature={feature} index={i} isLast={i === features.length - 1} />
               ))}
              </div>
              

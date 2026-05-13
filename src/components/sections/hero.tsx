@@ -25,9 +25,12 @@ export function HeroSection() {
 
   return (
     <section className="relative pt-28 pb-12 md:min-h-screen md:pt-48 md:pb-40 flex flex-col items-center justify-center z-0 overflow-hidden bg-[#faf8f5]">
-      {/* Static Background */}
+      {/* Responsive Background */}
       <div 
-        className="absolute inset-0 z-[-1] bg-[url('/courtroom2.jpeg')] bg-cover bg-[center_85%] bg-no-repeat pointer-events-none"
+        className="absolute inset-0 z-[-1] bg-cover bg-center bg-no-repeat pointer-events-none 
+                   bg-[url('/background/1080x1920.jpg')] 
+                   md:bg-[url('/background/1920x1080.jpg')] 
+                   xl:bg-[url('/background/2560x1440.jpg')]"
       />
       
 
@@ -55,7 +58,7 @@ export function HeroSection() {
               href="/contact-us" 
               className="bg-[#1a1818] hover:bg-black text-white text-[17px] font-bold px-8 py-3.5 rounded-full transition-colors w-full sm:w-auto text-center"
             >
-              Try LawDesk free
+              Try LegalRobe free
             </Link>
             <a 
               href="#features" 

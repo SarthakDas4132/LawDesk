@@ -36,8 +36,8 @@ export function Navbar() {
           }`}
         >
           <motion.div layout transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }} className="flex items-center gap-2 pl-2 z-50">
-            <img src="/logo.png" alt="LawDesk" className="h-7 md:h-8 w-auto" />
-            <span className="font-bold text-lg md:text-xl text-[#111827] tracking-tight">LawDesk</span>
+            <img src="/logo.png" alt="LegalRobe" className="h-7 md:h-8 w-auto" />
+            <span className="font-bold text-lg md:text-xl text-[#111827] tracking-tight">LegalRobe</span>
           </motion.div>
           
           <motion.nav layout transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }} className="hidden md:flex items-center gap-8">
@@ -50,7 +50,7 @@ export function Navbar() {
 
           <motion.div layout transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }} className="hidden md:flex items-center">
             <Link href="/contact-us" className="bg-[#1a1818] hover:bg-black text-white text-[15px] font-bold px-6 py-2.5 rounded-full transition-colors whitespace-nowrap">
-              Try LawDesk free
+              Try LegalRobe free
             </Link>
           </motion.div>
 
@@ -89,7 +89,7 @@ export function Navbar() {
                 onClick={() => setIsOpen(false)}
                 className="bg-[#1a1818] text-white text-[15px] font-bold px-6 py-3.5 rounded-full text-center w-full shadow-lg"
               >
-                Try LawDesk free
+                Try LegalRobe free
               </Link>
               <Link 
                 href="/#features" 

@@ -11,13 +11,13 @@ export function Footer() {
             Ready to get started
           </h2>
           <p className="text-[#4b5563] text-[17px] mb-8">
-            Download LawDesk for free. No credit card required.
+            Download LegalRobe for free. No credit card required.
           </p>
           <Link 
             href="/contact-us" 
             className="inline-block bg-[#1a1818] hover:bg-black text-white text-[15px] font-bold px-8 py-3.5 rounded-full transition-colors"
           >
-            Try LawDesk free
+            Try LegalRobe free
           </Link>
         </div>
 
@@ -28,8 +28,8 @@ export function Footer() {
             {/* Left Side */}
             <div>
               <Link href="/" className="flex items-center gap-2 mb-4 text-[#111827] font-bold text-xl tracking-tight">
-                <img src="/logo.png" alt="LawDesk" className="h-8 w-auto" />
-                LawDesk
+                <img src="/logo.png" alt="LegalRobe" className="h-8 w-auto" />
+                LegalRobe
               </Link>
               <p className="text-[#4b5563] mb-8 text-[15px]">
                 Made for modern legal teams.
@@ -63,7 +63,6 @@ export function Footer() {
                   <li><Link href="/contact-us" className="text-[#4b5563] hover:text-[#111827] transition-colors text-[14px] font-medium">Contact</Link></li>
                   <li><Link href="/privacy-policy" className="text-[#4b5563] hover:text-[#111827] transition-colors text-[14px] font-medium">Privacy</Link></li>
                   <li><Link href="/terms-of-use" className="text-[#4b5563] hover:text-[#111827] transition-colors text-[14px] font-medium">Terms of use</Link></li>
-                  <li><Link href="/404" className="text-[#4b5563] hover:text-[#111827] transition-colors text-[14px] font-medium">404</Link></li>
                 </ul>
               </div>
             </div>
@@ -71,7 +70,7 @@ export function Footer() {
 
           <div className="pt-8 border-t border-[#e5e0d8]">
             <p className="text-[#6b7280] text-sm">
-              © 2026 Lawdesk. All rights reserved.
+              © 2026 LegalRobe. All rights reserved.
             </p>
           </div>
         </div>

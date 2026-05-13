@@ -20,7 +20,7 @@ export function PricingSection() {
           
           {/* Basic Plan */}
           <div className="bg-[#f2f0ea] rounded-[2rem] p-6 md:p-10 flex flex-col h-full hover:shadow-xl transition-shadow border border-[#e5e0d8]">
-            <h3 className="text-[17px] font-bold text-[#4b5563] mb-2">LawDesk Basic</h3>
+            <h3 className="text-[17px] font-bold text-[#4b5563] mb-2">LegalRobe Basic</h3>
             <div className="text-4xl font-bold text-[#111827] mb-6">Free</div>
             <p className="text-[#6b7280] mb-8 text-[15px]">For solo use with light needs.</p>
             
@@ -65,7 +65,7 @@ export function PricingSection() {
 
             <div className="px-6 md:px-8 pb-6 md:pb-8 pt-2">
               <div className="flex items-center gap-3">
-                <h3 className="text-[17px] font-bold text-[#4b5563]">LawDesk Premium</h3>
+                <h3 className="text-[17px] font-bold text-[#4b5563]">LegalRobe Premium</h3>
                 <span className="bg-[#bdf0ce] text-[#0d6a2f] text-[10px] font-bold px-3 py-1 rounded-full border border-[#a2deb6]">
                   Save 20%
                 </span>
@@ -89,7 +89,7 @@ export function PricingSection() {
 
           {/* Enterprise Plan */}
           <div className="bg-[#f2f0ea] rounded-[2rem] p-6 md:p-10 flex flex-col h-full hover:shadow-xl transition-shadow border border-[#e5e0d8]">
-            <h3 className="text-[17px] font-bold text-[#4b5563] mb-2">LawDesk Enterprise</h3>
+            <h3 className="text-[17px] font-bold text-[#4b5563] mb-2">LegalRobe Enterprise</h3>
             <div className="text-4xl font-bold text-[#111827] mb-6">Flexible</div>
             <p className="text-[#6b7280] mb-8 text-[15px]">For team use with light needs.</p>
             
