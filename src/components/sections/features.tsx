@@ -57,14 +57,33 @@ function FeatureBlock({ feature, index, isLast }: { feature: typeof features[0],
     offset: ["start center", "end center"]
   })
   
-  // Change color when the element crosses the vertical center
-  const dotBorder = useTransform(dotProgress, [0, 0.1], ["#d1d5db", "#111827"])
-  const dotBg = useTransform(dotProgress, [0, 0.1], ["#f9f8f6", "#111827"])
-  const textColor = useTransform(dotProgress, [0, 0.1], ["#9ca3af", "#ffffff"])
+  // Change color exactly when the line reaches the center of the circle
+  // On mobile, center is at 52px. On desktop, it's at 90px.
+  // We'll use a rough estimation for the transition point (approx 0.15 - 0.2 of the block)
+  const dotBorder = useTransform(dotProgress, [0.1, 0.2], ["#d1d5db", "#111827"])
+  const dotBg = useTransform(dotProgress, [0.1, 0.2], ["#f9f8f6", "#111827"])
+  const textColor = useTransform(dotProgress, [0.1, 0.2], ["#9ca3af", "#ffffff"])
 
   return (
     <div ref={ref} className={`pt-8 md:pt-16 ${isLast ? 'pb-0' : 'pb-8 md:pb-16'} relative group`}>
       
+      {/* Vertical Line Container */}
+      <div className={`absolute left-0 ${index === 0 ? 'top-[52px] md:top-[90px]' : 'top-0'} bottom-0 w-[2px] z-0`}>
+        {/* Background (Grey) Segment */}
+        <div className="absolute inset-0 bg-[#e5e7eb]" />
+        
+        {/* Animated Filling (Black) Segment */}
+        <motion.div 
+          className="absolute inset-0 bg-[#111827] origin-top"
+          style={{ scaleY: dotProgress }}
+        />
+
+        {/* Mask for the very last point to prevent line bleed */}
+        {index === 7 && (
+          <div className="absolute top-[52px] md:top-[90px] bottom-0 w-4 -left-2 bg-[#f9f8f6] z-[5]" />
+        )}
+      </div>
+
       {/* Circle on the progress line */}
       <motion.div 
         className="absolute left-0 top-[32px] md:top-[70px] w-10 h-10 rounded-full border-2 flex items-center justify-center -ml-[19px] z-10 text-[12px] font-bold shadow-sm"
@@ -76,11 +95,6 @@ function FeatureBlock({ feature, index, isLast }: { feature: typeof features[0],
       >
         {String(index + 1).padStart(2, '0')}
       </motion.div>
-
-      {/* Mask to hide the progress line below the last circle */}
-      {index === 7 && (
-        <div className="absolute left-0 -ml-[2px] top-[52px] md:top-[90px] bottom-0 w-1 bg-[#f9f8f6] z-[5]" />
-      )}
 
       {/* Content Block */}
       <motion.div style={{ opacity, y }} className="pl-12 md:pl-20">
@@ -133,15 +147,6 @@ export function FeaturesSection() {
           {/* Right Column: Scrolling Feature List */}
           <div className="w-full md:w-[65%] relative">
              
-             {/* Progress Line Container */}
-              <div className="absolute left-0 top-[52px] md:top-[90px] bottom-0 w-[2px] bg-[#e5e7eb] z-0">
-                {/* Filling Progress Line (Black) */}
-                <motion.div 
-                  className="absolute left-0 top-0 bottom-0 w-full bg-[#111827] origin-top rounded-full"
-                  style={{ scaleY: scrollYProgress }}
-                />
-              </div>
-
              <div className="w-full">
               {features.map((feature, i) => (
                 <FeatureBlock key={i} feature={feature} index={i} isLast={i === features.length - 1} />
