@@ -32,7 +32,7 @@ export function Navbar() {
           className={`pointer-events-auto flex items-center justify-between transition-colors duration-500 w-full ${
             isScrolled 
               ? "max-w-4xl bg-white/50 backdrop-blur-2xl border border-white/50 shadow-[0_8px_32px_rgba(0,0,0,0.04)] rounded-full px-5 py-2.5" 
-              : "max-w-7xl bg-transparent border border-transparent px-2 py-4"
+              : "lg:max-w-4xl xl:max-w-7xl bg-transparent border border-transparent px-2 py-4"
           }`}
         >
           <motion.div layout transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }} className="flex items-center gap-2 pl-2 z-50">
@@ -40,16 +40,16 @@ export function Navbar() {
             <span className="font-bold text-lg md:text-xl text-[#111827] tracking-tight">LegalRobe</span>
           </motion.div>
           
-          <motion.nav layout transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }} className="hidden md:flex items-center gap-8">
-            <Link href="/#features" className="text-[15px] font-medium text-[#111827] hover:opacity-70 transition-opacity">Features</Link>
-            <Link href="/#benefits" className="text-[15px] font-medium text-[#111827] hover:opacity-70 transition-opacity">Benefits</Link>
-            <Link href="/#pricing" className="text-[15px] font-medium text-[#111827] hover:opacity-70 transition-opacity">Pricing</Link>
-            <Link href="/blog" className="text-[15px] font-medium text-[#111827] hover:opacity-70 transition-opacity">Blog</Link>
-            <Link href="/contact-us" className="text-[15px] font-medium text-[#111827] hover:opacity-70 transition-opacity">Contact Us</Link>
+          <motion.nav layout transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }} className="hidden lg:flex items-center gap-6 xl:gap-8">
+            <Link href="/#features" className="text-[14px] xl:text-[15px] font-medium text-[#111827] hover:opacity-70 transition-opacity">Features</Link>
+            <Link href="/#benefits" className="text-[14px] xl:text-[15px] font-medium text-[#111827] hover:opacity-70 transition-opacity">Benefits</Link>
+            <Link href="/#pricing" className="text-[14px] xl:text-[15px] font-medium text-[#111827] hover:opacity-70 transition-opacity">Pricing</Link>
+            <Link href="/blog" className="text-[14px] xl:text-[15px] font-medium text-[#111827] hover:opacity-70 transition-opacity">Blog</Link>
+            <Link href="/contact-us" className="text-[14px] xl:text-[15px] font-medium text-[#111827] hover:opacity-70 transition-opacity">Contact Us</Link>
           </motion.nav>
 
-          <motion.div layout transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }} className="hidden md:flex items-center">
-            <Link href="/contact-us" className="bg-[#1a1818] hover:bg-black text-white text-[15px] font-bold px-6 py-2.5 rounded-full transition-colors whitespace-nowrap">
+          <motion.div layout transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }} className="hidden lg:flex items-center">
+            <Link href="/contact-us" className="bg-[#1a1818] hover:bg-black text-white text-[14px] xl:text-[15px] font-bold px-5 xl:px-6 py-2.5 rounded-full transition-colors whitespace-nowrap">
               Try LegalRobe free
             </Link>
           </motion.div>
@@ -58,7 +58,7 @@ export function Navbar() {
           <motion.button 
             layout 
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden flex items-center justify-center p-2 z-50 text-[#111827]"
+            className="lg:hidden flex items-center justify-center p-2 z-50 text-[#111827]"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </motion.button>
@@ -73,7 +73,7 @@ export function Navbar() {
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             exit={{ opacity: 0, y: -20, filter: "blur(10px)" }}
             transition={{ duration: 0.3, ease: "easeOut" }}
-            className="fixed left-4 right-4 top-24 z-40 md:hidden flex flex-col items-center bg-white/95 backdrop-blur-3xl rounded-[2rem] border border-[#e5e0d8] shadow-2xl p-6"
+            className="fixed left-4 right-4 top-24 z-40 lg:hidden flex flex-col items-center bg-white/95 backdrop-blur-3xl rounded-[2rem] border border-[#e5e0d8] shadow-2xl p-6"
           >
             <nav className="flex flex-col items-center gap-5 mb-8 w-full">
               <Link href="/#features" onClick={() => setIsOpen(false)} className="text-[16px] font-bold text-[#4b5563] hover:text-[#111827]">Features</Link>

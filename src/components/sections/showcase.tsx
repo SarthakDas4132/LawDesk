@@ -35,7 +35,7 @@ export function ShowcaseSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="relative w-full max-w-5xl h-[350px] sm:h-[450px] md:h-[700px] rounded-3xl md:rounded-[2rem] overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,0,0,0.3)] bg-[#f9f8f6] border border-black/5"
+          className="relative w-full lg:max-w-4xl xl:max-w-5xl h-[350px] sm:h-[450px] md:h-[700px] rounded-3xl md:rounded-[2rem] overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,0,0,0.3)] bg-[#f9f8f6] border border-black/5"
         >
           <div className="absolute inset-0 w-full h-full">
             <motion.img

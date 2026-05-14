@@ -1,35 +1,45 @@
 "use client"
 
-import { useRef } from "react"
+import { useRef, useState, useEffect } from "react"
 import { motion, useScroll, useTransform } from "framer-motion"
 import Link from "next/link"
 
 export function HeroSection() {
   const containerRef = useRef<HTMLDivElement>(null)
   
-  // Standup scroll effect
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "center center"]
-  })
+  // Use state to handle responsive values for tablet sizes (iPad Mini, Air, Pro)
+  const [isTablet, setIsTablet] = useState(false)
+
+  useEffect(() => {
+    const handleResize = () => {
+      // Range covering iPad Mini (768) to iPad Pro (1024/1180)
+      setIsTablet(window.innerWidth >= 768 && window.innerWidth <= 1180)
+    }
+    handleResize()
+    window.addEventListener("resize", handleResize)
+    return () => window.removeEventListener("resize", handleResize)
+  }, [])
   
   // If we're at the top, it should be slightly tilted, and fully flat as we scroll down
   const { scrollY } = useScroll()
-  const rotateX = useTransform(scrollY, [0, 800], [25, 0]) // Slower standup
-  const scale = useTransform(scrollY, [0, 800], [0.9, 1])
+  const rotateX = useTransform(scrollY, [0, 800], isTablet ? [8, 0] : [25, 0])
+  const scale = useTransform(scrollY, [0, 800], isTablet ? [0.96, 1] : [0.9, 1])
 
   // Parallax for dashboard so it scrolls slower
-  const dashboardY = useTransform(scrollY, [0, 800], [0, 200])
+  // Reduced movement for tablet to keep it 'attached' to the desk
+  const dashboardY = useTransform(scrollY, [0, 800], isTablet ? [0, 60] : [0, 200])
 
 
 
   return (
-    <section className="relative pt-28 pb-12 md:min-h-screen md:pt-48 md:pb-40 flex flex-col items-center justify-center z-0 overflow-hidden bg-[#faf8f5]">
+    <section className={`relative pt-28 pb-12 md:min-h-screen md:pt-48 ${isTablet ? 'md:pb-0 justify-start' : 'md:pb-40 justify-center'} flex flex-col items-center z-0 overflow-hidden bg-[#faf8f5]`}>
       {/* Responsive Background */}
       <div 
         className="absolute inset-0 z-[-1] bg-cover bg-center bg-no-repeat pointer-events-none 
                    bg-[url('/background/1080x1920.jpg')] 
-                   md:bg-[url('/background/1920x1080.jpg')] 
+                   sm:bg-[url('/background/1600x2100.jpg')]
+                   md:bg-[url('/background/1200x1600.jpg')]
+                   lg:bg-[url('/background/1920x1200.jpg')] 
                    xl:bg-[url('/background/2560x1440.jpg')]"
       />
       
@@ -37,11 +47,11 @@ export function HeroSection() {
 
 
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className={`container mx-auto px-6 relative z-10 ${isTablet ? 'flex-1 flex flex-col' : ''}`}>
         <div className="text-center max-w-4xl mx-auto flex flex-col items-center">
           
-          <h1 className="text-[2.1rem] sm:text-[3.5rem] md:text-[5.5rem] leading-[1.1] font-bold text-[#111827] mb-6 md:mb-8 tracking-tight" style={{ opacity: 1, transform: "none" }}>
-            All-in-One<br className="block md:hidden"/><span className="hidden md:inline"> Legal Case</span><br className="hidden md:block"/><span className="md:hidden"> Legal Case</span><span className="hidden md:inline">Workspace.</span><br/>Management
+          <h1 className="text-[2.2rem] sm:text-[3.8rem] md:text-[4.5rem] lg:text-[4.8rem] xl:text-[5.5rem] leading-[1.1] font-bold text-[#111827] mb-6 md:mb-8 tracking-tight">
+            All-in-One Legal Case <br className="hidden md:block" /> Workspace Management
           </h1>
 
           <p className="text-lg md:text-[22px] text-[#374151] mb-10 md:mb-12 max-w-[800px] leading-relaxed font-medium px-4 md:px-0" style={{ opacity: 1, transform: "none" }}>
@@ -77,7 +87,7 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-          className="hidden md:block w-full max-w-5xl mx-auto perspective-[1200px]"
+          className={`hidden md:block w-full lg:max-w-4xl xl:max-w-5xl mx-auto perspective-[1200px] ${isTablet ? 'mt-auto' : ''}`}
         >
           <motion.div
             style={{ 

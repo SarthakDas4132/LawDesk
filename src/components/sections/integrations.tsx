@@ -74,19 +74,12 @@ export function IntegrationsSection() {
           className="bg-[#0a0a0a] rounded-[2.5rem] overflow-hidden flex flex-col md:flex-row shadow-[0_40px_80px_-20px_rgba(0,0,0,0.3)] relative min-h-[400px] md:min-h-[500px]"
         >
           
-          {/* Background/Left Grid */}
-          <div className="w-full md:w-[55%] absolute md:relative inset-0 flex items-center justify-center md:justify-start h-[400px] md:h-[550px] overflow-hidden">
-            {/* The CSS mask creates the smooth fade into black on the right side, DESKTOP ONLY */}
+          {/* Background Layer: Scrolling Logos */}
+          <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
             <div 
-              className="hidden md:block absolute inset-0 z-10 pointer-events-none" 
-              style={{
-                background: 'linear-gradient(to right, transparent 30%, #0a0a0a 95%)'
-              }}
-            ></div>
-            
-            {/* Oversized container. On mobile, opacity is reduced so text stands out without a black box */}
-            <div className="absolute top-1/2 left-1/2 md:left-0 -translate-x-1/2 md:-translate-x-0 -translate-y-1/2 w-[250%] sm:w-[200%] md:w-[150%] transform -rotate-2 scale-110 opacity-30 md:opacity-100">
-              <div className="flex flex-col gap-3 md:gap-5 md:-ml-[50%]">
+              className="absolute top-1/2 left-1/2 md:left-0 -translate-x-1/2 md:-translate-x-0 -translate-y-1/2 w-[250%] sm:w-[200%] md:w-[150%] transform -rotate-2 scale-110 opacity-30 md:opacity-100 md:[mask-image:linear-gradient(to_right,black_20%,transparent_65%)] md:[WebkitMaskImage:linear-gradient(to_right,black_20%,transparent_65%)]"
+            >
+              <div className="flex flex-col gap-3 md:gap-5 md:-ml-[20%]">
                 <MarqueeRow items={makeLongRow(row1)} duration={35} />
                 <MarqueeRow items={makeLongRow(row2)} reverse duration={45} />
                 <MarqueeRow items={makeLongRow(row3)} duration={40} />
@@ -96,8 +89,11 @@ export function IntegrationsSection() {
             </div>
           </div>
 
-          {/* Foreground/Right Side */}
-          <div className="w-full md:w-[45%] flex flex-col items-center justify-center p-8 md:p-16 z-20 relative h-[400px] md:h-auto mt-auto md:mt-0">
+          {/* Foreground Layer: Text and Logo Overlay */}
+          <div className="w-full md:w-[45%] md:ml-auto flex flex-col items-center justify-center p-8 md:p-16 z-20 relative h-[400px] md:h-auto mt-auto md:mt-0 bg-transparent">
+            {/* On desktop, we want a transparent background to see the fade, but a solid one on the far right if needed */}
+            <div className="absolute inset-0 bg-[#0a0a0a] z-[-1] hidden md:block md:[mask-image:linear-gradient(to_right,transparent,#0a0a0a_20%)] md:[WebkitMaskImage:linear-gradient(to_right,transparent,#0a0a0a_20%)]"></div>
+
             {/* Subtle glow behind the logo */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 md:w-64 h-48 md:h-64 bg-white/10 rounded-full blur-[60px] md:blur-[80px] pointer-events-none"></div>
             

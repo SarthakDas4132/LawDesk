@@ -16,7 +16,7 @@ export function AnalyticsSection() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-6 lg:max-w-4xl xl:max-w-5xl mx-auto">
           {/* Large Card */}
           <motion.div 
             whileHover={{ y: -5 }}

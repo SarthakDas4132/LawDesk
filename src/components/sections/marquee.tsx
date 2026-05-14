@@ -26,7 +26,7 @@ export function MarqueeSection() {
                 <div className="w-5 h-5 rounded-full bg-black/80 flex items-center justify-center text-[10px] text-white font-bold">
                   S
                 </div>
-                <span className="text-[15px] md:text-2xl font-bold text-black tracking-tight">Your data is fully secured and end to end encrypted</span>
+                <span className="text-[15px] md:text-[20px] lg:text-2xl font-bold text-black tracking-tight">Your data is fully secured and end to end encrypted</span>
               </div>
             ))}
           </motion.div>

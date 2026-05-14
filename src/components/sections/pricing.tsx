@@ -16,7 +16,7 @@ export function PricingSection() {
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-10 md:gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 xl:gap-10 items-stretch max-w-md lg:max-w-none mx-auto">
           
           {/* Basic Plan */}
           <div className="bg-[#f2f0ea] rounded-[2rem] p-6 md:p-10 flex flex-col h-full hover:shadow-xl transition-shadow border border-[#e5e0d8]">
@@ -38,7 +38,7 @@ export function PricingSection() {
           </div>
 
           {/* Premium - WITH TOGGLE */}
-          <div className="bg-[#d2e5f9] rounded-[2rem] p-2 border-2 border-[#82b8f4] shadow-xl relative md:scale-105 z-10">
+          <div className="bg-[#d2e5f9] rounded-[2rem] p-2 border-2 border-[#82b8f4] shadow-xl relative lg:scale-105 z-10">
             
             {/* Toggle inside the top padding */}
             <div className="flex justify-center mb-6 mt-4">

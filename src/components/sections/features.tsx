@@ -48,7 +48,7 @@ function FeatureBlock({ feature, index, isLast }: { feature: typeof features[0],
   })
 
   // The element peaks at 50% scroll progress (center of screen)
-  const opacity = useTransform(scrollYProgress, [0.2, 0.45, 0.55, 0.8], [0.15, 1, 1, 0.15])
+  const opacity = useTransform(scrollYProgress, [0.2, 0.45, 0.55, 0.8], [0.4, 1, 1, 0.4])
   const y = useTransform(scrollYProgress, [0.2, 0.5, 0.8], [30, 0, -30])
 
   // Track progress strictly for the dot activation (when it crosses the center)
@@ -124,14 +124,14 @@ export function FeaturesSection() {
 
   return (
     <section id="features" className="py-24 md:py-40 bg-[#f9f8f6] relative">
-      <div className="container mx-auto px-6 max-w-5xl relative">
+      <div className="container mx-auto px-6 lg:max-w-4xl xl:max-w-5xl relative">
         
-        <div ref={containerRef} className="flex flex-col md:flex-row gap-12 md:gap-32 relative items-start">
+        <div ref={containerRef} className="flex flex-col md:flex-row gap-12 md:gap-16 lg:gap-20 xl:gap-32 relative items-start">
           
           {/* Left Column: Sticky Title */}
           <motion.div 
             style={{ opacity: titleOpacity }}
-            className="w-full md:w-[35%] md:sticky md:top-40 self-start mb-8 md:mb-0"
+            className="w-full md:w-[40%] lg:w-[45%] xl:w-[35%] md:sticky md:top-40 self-start mb-8 md:mb-0"
           >
             <h3 className="text-[#8c8273] font-bold tracking-widest uppercase text-xs mb-4">
               Our Process
@@ -145,7 +145,7 @@ export function FeaturesSection() {
           </motion.div>
 
           {/* Right Column: Scrolling Feature List */}
-          <div className="w-full md:w-[65%] relative">
+          <div className="w-full md:w-[60%] lg:w-[55%] xl:w-[65%] relative">
              
              <div className="w-full">
               {features.map((feature, i) => (
