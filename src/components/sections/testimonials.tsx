@@ -9,7 +9,7 @@ export function TestimonialsSection() {
             "The future of legal work is not about working harder it is about using AI to organize knowledge, reduce manual efforts and make your Law Firm faster"
           </h2>
           <div className="flex flex-col items-center">
-            <img src="/logos/logo-v2.png" alt="JMD Team" className="w-16 h-auto mb-4" />
+            <img src="/logo-final-nobg.png" alt="JMD Team" className="w-20 h-auto mb-4" />
             <h4 className="font-bold text-[#111827] text-[15px]">JMD Team</h4>
           </div>
         </div>

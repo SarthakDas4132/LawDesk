@@ -123,7 +123,7 @@ export function FeaturesSection() {
   const titleOpacity = useTransform(scrollYProgress, [0.8, 0.95], [1, 0])
 
   return (
-    <section id="features" className="py-24 md:py-40 bg-[#f9f8f6] relative">
+    <section id="features" className="pt-24 md:pt-40 pb-12 md:pb-16 bg-[#f9f8f6] relative">
       <div className="container mx-auto px-6 lg:max-w-4xl xl:max-w-5xl relative">
         
         <div ref={containerRef} className="flex flex-col md:flex-row gap-12 md:gap-16 lg:gap-20 xl:gap-32 relative items-start">

@@ -32,7 +32,7 @@ export function HeroSection() {
 
 
   return (
-    <section className={`relative pt-28 pb-12 md:min-h-screen md:pt-48 ${isTablet ? 'md:pb-0 justify-start' : 'md:pb-40 justify-center'} flex flex-col items-center z-0 overflow-hidden bg-[#faf8f5]`}>
+    <section className={`relative pt-28 pb-12 md:min-h-screen md:pt-36 ${isTablet ? 'md:pb-0 justify-start' : 'md:pb-32 justify-center'} flex flex-col items-center z-0 overflow-hidden bg-[#faf8f5]`}>
       {/* Responsive Background */}
       <div 
         className="absolute inset-0 z-[-1] bg-cover bg-center bg-no-repeat pointer-events-none 
@@ -50,11 +50,11 @@ export function HeroSection() {
       <div className={`container mx-auto px-6 relative z-10 ${isTablet ? 'flex-1 flex flex-col' : ''}`}>
         <div className="text-center max-w-4xl mx-auto flex flex-col items-center">
           
-          <h1 className="text-[2.2rem] sm:text-[3.8rem] md:text-[4.5rem] lg:text-[4.8rem] xl:text-[5.5rem] leading-[1.1] font-bold text-[#111827] mb-6 md:mb-8 tracking-tight">
+          <h1 className="text-[2.2rem] sm:text-[3.6rem] md:text-[3.8rem] lg:text-[4.2rem] xl:text-[4.8rem] leading-[1.1] font-bold text-[#111827] mb-5 md:mb-6 tracking-tight">
             All-in-One Legal Case <br className="hidden md:block" /> Workspace Management
           </h1>
 
-          <p className="text-lg md:text-[22px] text-[#374151] mb-10 md:mb-12 max-w-[800px] leading-relaxed font-medium px-4 md:px-0" style={{ opacity: 1, transform: "none" }}>
+          <p className="text-lg md:text-[20px] text-[#374151] mb-8 md:mb-10 max-w-[800px] leading-relaxed font-medium px-4 md:px-0" style={{ opacity: 1, transform: "none" }}>
             AI powered matter management for smarter law firms<br className="hidden md:block"/><br className="hidden md:block"/>
           </p>
 
@@ -62,17 +62,17 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
-            className="flex flex-col sm:flex-row items-stretch justify-center gap-4 mb-8 md:mb-20 w-full"
+            className="flex flex-col sm:flex-row items-stretch justify-center gap-4 mb-8 md:mb-12 w-full"
           >
             <Link 
               href="/contact-us" 
-              className="bg-[#1a1818] hover:bg-black text-white text-[17px] font-bold px-8 py-3.5 rounded-full transition-colors w-full sm:w-auto text-center"
+              className="bg-[#1a1818] hover:bg-black text-white text-[16px] md:text-[17px] font-bold px-7 py-3 rounded-full transition-colors w-full sm:w-auto text-center"
             >
               Try LegalRobe free
             </Link>
             <a 
               href="#features" 
-              className="bg-white/40 hover:bg-white/60 text-[#111827] text-[17px] font-bold px-8 py-3.5 rounded-full transition-colors border border-white/50 w-full sm:w-auto text-center backdrop-blur-md"
+              className="bg-white/40 hover:bg-white/60 text-[#111827] text-[16px] md:text-[17px] font-bold px-7 py-3 rounded-full transition-colors border border-white/50 w-full sm:w-auto text-center backdrop-blur-md"
             >
               See features
             </a>

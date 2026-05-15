@@ -36,7 +36,7 @@ export function Navbar() {
           }`}
         >
           <motion.div layout transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }} className="flex items-center gap-2 pl-2 z-50">
-            <img src="/logo.png" alt="LegalRobe" className="h-7 md:h-8 w-auto" />
+            <img src="/logo-final-nobg.png" alt="LegalRobe" className="h-8 md:h-10 w-auto" />
             <span className="font-bold text-lg md:text-xl text-[#111827] tracking-tight">LegalRobe</span>
           </motion.div>
           

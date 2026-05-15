@@ -50,7 +50,7 @@ export default function BlogPage() {
                   <div className="flex items-center justify-between mt-auto">
                     <div className="flex items-center gap-3">
                       <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-tr from-[#d4c5b5] to-[#a38b73] overflow-hidden flex items-center justify-center text-white font-bold text-sm md:text-base border-2 border-white shadow-sm">
-                        <Image src="/logo.png" alt="Author" width={24} height={24} className="opacity-80" />
+                        <Image src="/logo-final-nobg.png" alt="Author" width={32} height={32} className="opacity-80" />
                       </div>
                       <div>
                         <p className="text-xs md:text-sm font-bold text-[#111827]">LegalRobe Editorial</p>

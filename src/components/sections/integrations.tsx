@@ -43,7 +43,7 @@ const MarqueeRow = ({ items, reverse, duration }: { items: string[], reverse?: b
 
 export function IntegrationsSection() {
   return (
-    <section className="py-16 md:py-24 bg-[#f9f8f6]">
+    <section className="pt-8 md:pt-12 pb-12 md:pb-16 bg-[#f9f8f6]">
       <div className="container mx-auto px-6 max-w-5xl">
         
         <div className="text-center mb-16">
@@ -104,7 +104,7 @@ export function IntegrationsSection() {
               transition={{ delay: 0.4, type: "spring", stiffness: 200, damping: 20 }}
               className="bg-white w-24 h-24 md:w-[136px] md:h-[136px] rounded-[1.5rem] md:rounded-[2rem] flex items-center justify-center mb-6 md:mb-10 shadow-[0_0_30px_rgba(255,255,255,0.2)] relative z-10"
             >
-               <img src="/logos/logo-v2.png" alt="LegalRobe Logo" className="w-[60%] h-[60%] object-contain drop-shadow-sm" />
+               <img src="/logo-final-nobg.png" alt="LegalRobe Logo" className="w-[75%] h-[75%] object-contain drop-shadow-sm" />
             </motion.div>
             
             <motion.h3 

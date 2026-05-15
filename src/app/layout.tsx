@@ -16,6 +16,8 @@ import { LenisProvider } from "@/components/lenis-provider";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 
+import { FloatingContact } from "@/components/ui/floating-contact";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -35,6 +37,7 @@ export default function RootLayout({
               {children}
             </div>
             <Footer />
+            <FloatingContact />
           </div>
         </LenisProvider>
       </body>
