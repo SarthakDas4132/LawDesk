@@ -77,7 +77,7 @@ export function IntegrationsSection() {
           {/* Background Layer: Scrolling Logos */}
           <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
             <div 
-              className="absolute top-1/2 left-1/2 md:left-0 -translate-x-1/2 md:-translate-x-0 -translate-y-1/2 w-[250%] sm:w-[200%] md:w-[150%] transform -rotate-2 scale-110 opacity-30 md:opacity-100 md:[mask-image:linear-gradient(to_right,black_20%,transparent_65%)] md:[WebkitMaskImage:linear-gradient(to_right,black_20%,transparent_65%)]"
+              className="absolute top-1/2 left-1/2 md:left-0 -translate-x-1/2 md:-translate-x-0 -translate-y-1/2 w-[250%] sm:w-[200%] md:w-[150%] transform -rotate-2 scale-110 opacity-30 md:opacity-100 md:[mask-image:linear-gradient(to_right,black_10%,transparent_50%)] md:[WebkitMaskImage:linear-gradient(to_right,black_10%,transparent_50%)]"
             >
               <div className="flex flex-col gap-3 md:gap-5 md:-ml-[20%]">
                 <MarqueeRow items={makeLongRow(row1)} duration={35} />
@@ -90,9 +90,9 @@ export function IntegrationsSection() {
           </div>
 
           {/* Foreground Layer: Text and Logo Overlay */}
-          <div className="w-full md:w-[45%] md:ml-auto flex flex-col items-center justify-center p-8 md:p-16 z-20 relative h-[400px] md:h-auto mt-auto md:mt-0 bg-transparent">
+          <div className="w-full md:w-[50%] md:ml-auto flex flex-col items-center justify-center p-8 md:p-16 z-20 relative h-[400px] md:h-auto mt-auto md:mt-0 bg-transparent">
             {/* On desktop, we want a transparent background to see the fade, but a solid one on the far right if needed */}
-            <div className="absolute inset-0 bg-[#0a0a0a] z-[-1] hidden md:block md:[mask-image:linear-gradient(to_right,transparent,#0a0a0a_20%)] md:[WebkitMaskImage:linear-gradient(to_right,transparent,#0a0a0a_20%)]"></div>
+            <div className="absolute inset-0 bg-[#0a0a0a] z-[-1] hidden md:block md:[mask-image:linear-gradient(to_right,transparent,#0a0a0a_10%)] md:[WebkitMaskImage:linear-gradient(to_right,transparent,#0a0a0a_10%)]"></div>
 
             {/* Subtle glow behind the logo */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 md:w-64 h-48 md:h-64 bg-white/10 rounded-full blur-[60px] md:blur-[80px] pointer-events-none"></div>
@@ -102,9 +102,9 @@ export function IntegrationsSection() {
               whileInView={{ scale: 1, opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4, type: "spring", stiffness: 200, damping: 20 }}
-              className="bg-white w-24 h-24 md:w-[136px] md:h-[136px] rounded-[1.5rem] md:rounded-[2rem] flex items-center justify-center mb-6 md:mb-10 shadow-[0_0_30px_rgba(255,255,255,0.2)] relative z-10"
+              className="w-24 h-24 md:w-[136px] md:h-[136px] flex items-center justify-center mb-6 md:mb-10 relative z-10"
             >
-               <img src="/logo-final-nobg.png" alt="LegalRobe Logo" className="w-[75%] h-[75%] object-contain drop-shadow-sm" />
+               <img src="/logos/invert-logo.png" alt="LegalRobe Logo" className="w-[85%] h-[85%] object-contain drop-shadow-sm" />
             </motion.div>
             
             <motion.h3 

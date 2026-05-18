@@ -16,18 +16,18 @@ const contactLinks = [
   {
     name: "Email",
     href: "mailto:jmdsolutionbeyond@gmail.com",
-    icon: <Mail size={20} />,
-    color: "bg-[#ea4335]",
-    hoverColor: "hover:bg-[#d93025]",
+    icon: <img src="/logos/gmail.png" alt="Gmail" className="w-6 h-6 object-contain" />,
+    color: "bg-white",
+    hoverColor: "hover:bg-neutral-50",
     ringColor: "hover:ring-[#ea4335]",
-    shadow: "shadow-red-500/25"
+    shadow: "shadow-black/10"
   },
   {
     name: "WhatsApp",
     href: "https://wa.me/919209552809?text=Hi!%20I%20would%20like%20to%20know%20more%20about%20LegalRobe%20and%20how%20it%20can%20help%20manage%20my%20law%20firm.",
-    icon: <MessageCircle size={20} />,
-    color: "bg-[#25d366]",
-    hoverColor: "hover:bg-[#20ba5a]",
+    icon: <img src="/logos/whatsapp.png?v=2" alt="WhatsApp" className="w-full h-full object-cover rounded-[14px]" />,
+    color: "bg-transparent",
+    hoverColor: "hover:bg-transparent",
     ringColor: "hover:ring-[#25d366]",
     shadow: "shadow-emerald-500/25"
   }

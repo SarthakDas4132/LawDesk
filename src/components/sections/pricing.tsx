@@ -8,7 +8,7 @@ export function PricingSection() {
   const [billing, setBilling] = useState<"Annually" | "Monthly">("Annually")
 
   return (
-    <section id="pricing" className="py-16 md:py-24 bg-[#eff3f8]">
+    <section id="pricing" className="pt-8 md:pt-12 pb-16 md:pb-24 bg-[#eff3f8]">
       <div className="container mx-auto px-6 max-w-6xl">
         <div className="text-center mb-16 md:mb-20">
           <h2 className="text-4xl md:text-5xl font-bold text-[#111827] tracking-tight leading-[1.1]">
@@ -32,13 +32,13 @@ export function PricingSection() {
               <li className="flex items-center gap-3"><svg className="w-4 h-4 text-[#111827]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg> iOS & Andriod app</li>
             </ul>
 
-            <Link href="/contact-us" className="block text-center bg-[#f4efe9] hover:bg-[#eaddce] text-[#111827] text-[15px] font-bold px-6 py-3.5 rounded-full transition-colors w-full">
+            <Link href="/contact-us" className="mt-auto block text-center border-2 border-[#1a1818] hover:bg-[#1a1818] hover:text-white text-[#111827] text-[15px] font-bold py-3.5 rounded-full transition-colors">
               Get Basic
             </Link>
           </div>
 
           {/* Premium - WITH TOGGLE */}
-          <div className="bg-[#d2e5f9] rounded-[2rem] p-2 border-2 border-[#82b8f4] shadow-xl relative lg:scale-105 z-10">
+          <div className="bg-[#d2e5f9] rounded-[2rem] p-2 border-2 border-[#82b8f4] shadow-xl relative z-10 flex flex-col h-full">
             
             {/* Toggle inside the top padding */}
             <div className="flex justify-center mb-6 mt-4">
@@ -63,7 +63,7 @@ export function PricingSection() {
               </div>
             </div>
 
-            <div className="px-6 md:px-8 pb-6 md:pb-8 pt-2">
+            <div className="px-6 md:px-8 pb-6 md:pb-8 pt-2 flex flex-col flex-grow">
               <div className="flex items-center gap-3">
                 <h3 className="text-[17px] font-bold text-[#4b5563]">LegalRobe Premium</h3>
                 <span className="bg-[#bdf0ce] text-[#0d6a2f] text-[10px] font-bold px-3 py-1 rounded-full border border-[#a2deb6]">
@@ -81,7 +81,7 @@ export function PricingSection() {
                 <li className="flex items-center gap-3"><svg className="w-4 h-4 text-[#111827]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg> Scheduling</li>
               </ul>
 
-              <Link href="/contact-us" className="mt-8 block text-center bg-white hover:bg-gray-100 text-[#1a1818] text-[15px] font-bold py-3.5 rounded-full transition-colors w-full">
+              <Link href="/contact-us" className="mt-auto block text-center bg-white hover:bg-gray-100 text-[#1a1818] text-[15px] font-bold py-3.5 rounded-full transition-colors w-full">
                 Get Premium
               </Link>
             </div>
