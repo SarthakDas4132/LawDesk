@@ -8,22 +8,28 @@ const contactLinks = [
     name: "Calendly",
     href: "https://calendly.com/jmdsolutions",
     icon: <Calendar size={20} />,
-    color: "bg-[#1a1818]",
-    shadow: "shadow-black/10"
+    color: "bg-[#006bff]",
+    hoverColor: "hover:bg-[#0056cc]",
+    ringColor: "hover:ring-[#006bff]",
+    shadow: "shadow-blue-500/25"
   },
   {
     name: "Email",
     href: "mailto:jmdsolutionbeyond@gmail.com",
     icon: <Mail size={20} />,
-    color: "bg-[#1a1818]",
-    shadow: "shadow-black/10"
+    color: "bg-[#ea4335]",
+    hoverColor: "hover:bg-[#d93025]",
+    ringColor: "hover:ring-[#ea4335]",
+    shadow: "shadow-red-500/25"
   },
   {
     name: "WhatsApp",
-    href: "https://wa.me/919209552809",
+    href: "https://wa.me/919209552809?text=Hi!%20I%20would%20like%20to%20know%20more%20about%20LegalRobe%20and%20how%20it%20can%20help%20manage%20my%20law%20firm.",
     icon: <MessageCircle size={20} />,
-    color: "bg-[#1a1818]",
-    shadow: "shadow-black/10"
+    color: "bg-[#25d366]",
+    hoverColor: "hover:bg-[#20ba5a]",
+    ringColor: "hover:ring-[#25d366]",
+    shadow: "shadow-emerald-500/25"
   }
 ]
 
@@ -39,7 +45,7 @@ export function FloatingContact() {
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.5 + (i * 0.1), duration: 0.5 }}
-          className={`pointer-events-auto w-12 h-12 ${link.color} text-white rounded-[14px] flex items-center justify-center shadow-lg ${link.shadow} hover:bg-black hover:scale-110 active:scale-95 transition-all duration-300 group ring-offset-2 hover:ring-2 hover:ring-[#1a1818]`}
+          className={`pointer-events-auto w-12 h-12 ${link.color} ${link.hoverColor} text-white rounded-[14px] flex items-center justify-center shadow-lg ${link.shadow} hover:scale-110 active:scale-95 transition-all duration-300 group ring-offset-2 hover:ring-2 ${link.ringColor}`}
           aria-label={link.name}
         >
           {link.icon}

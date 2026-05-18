@@ -65,10 +65,10 @@ function FeatureBlock({ feature, index, isLast }: { feature: typeof features[0],
   const textColor = useTransform(dotProgress, [0.1, 0.2], ["#9ca3af", "#ffffff"])
 
   return (
-    <div ref={ref} className={`pt-8 md:pt-16 ${isLast ? 'pb-0' : 'pb-8 md:pb-16'} relative group`}>
+    <div ref={ref} className={`pt-6 md:pt-10 ${isLast ? 'pb-0' : 'pb-6 md:pb-10'} relative group`}>
       
       {/* Vertical Line Container */}
-      <div className={`absolute left-0 ${index === 0 ? 'top-[52px] md:top-[90px]' : 'top-0'} bottom-0 w-[2px] z-0`}>
+      <div className={`absolute left-0 ${index === 0 ? 'top-[44px] md:top-[64px]' : 'top-0'} bottom-0 w-[2px] z-0`}>
         {/* Background (Grey) Segment */}
         <div className="absolute inset-0 bg-[#e5e7eb]" />
         
@@ -80,13 +80,13 @@ function FeatureBlock({ feature, index, isLast }: { feature: typeof features[0],
 
         {/* Mask for the very last point to prevent line bleed */}
         {index === 7 && (
-          <div className="absolute top-[52px] md:top-[90px] bottom-0 w-4 -left-2 bg-[#f9f8f6] z-[5]" />
+          <div className="absolute top-[44px] md:top-[64px] bottom-0 w-4 -left-2 bg-[#f9f8f6] z-[5]" />
         )}
       </div>
 
       {/* Circle on the progress line */}
       <motion.div 
-        className="absolute left-0 top-[32px] md:top-[70px] w-10 h-10 rounded-full border-2 flex items-center justify-center -ml-[19px] z-10 text-[12px] font-bold shadow-sm"
+        className="absolute left-0 top-[24px] md:top-[44px] w-10 h-10 rounded-full border-2 flex items-center justify-center -ml-[19px] z-10 text-[12px] font-bold shadow-sm"
         style={{ 
           borderColor: dotBorder, 
           backgroundColor: dotBg, 
@@ -98,10 +98,10 @@ function FeatureBlock({ feature, index, isLast }: { feature: typeof features[0],
 
       {/* Content Block */}
       <motion.div style={{ opacity, y }} className="pl-12 md:pl-20">
-        <h4 className="text-[1.75rem] md:text-[2.75rem] font-bold text-[#111827] tracking-tight mb-4 md:mb-6 leading-tight">
+        <h4 className="text-[1.4rem] md:text-[1.8rem] font-bold text-[#111827] tracking-tight mb-2 md:mb-3 leading-tight">
           {feature.title}
         </h4>
-        <p className="text-[16px] md:text-[1.3rem] text-[#4b5563] leading-relaxed max-w-2xl">
+        <p className="text-[14px] md:text-[1.05rem] text-[#4b5563] leading-relaxed max-w-2xl">
           {feature.description}
         </p>
       </motion.div>
@@ -123,15 +123,15 @@ export function FeaturesSection() {
   const titleOpacity = useTransform(scrollYProgress, [0.8, 0.95], [1, 0])
 
   return (
-    <section id="features" className="pt-24 md:pt-40 pb-12 md:pb-16 bg-[#f9f8f6] relative">
+    <section id="features" className="pt-4 md:pt-40 pb-12 md:pb-16 bg-[#f9f8f6] relative">
       <div className="container mx-auto px-6 lg:max-w-4xl xl:max-w-5xl relative">
         
-        <div ref={containerRef} className="flex flex-col md:flex-row gap-12 md:gap-16 lg:gap-20 xl:gap-32 relative items-start">
+        <div ref={containerRef} className="flex flex-col md:flex-row gap-4 md:gap-16 lg:gap-20 xl:gap-32 relative items-start">
           
           {/* Left Column: Sticky Title */}
           <motion.div 
             style={{ opacity: titleOpacity }}
-            className="w-full md:w-[40%] lg:w-[45%] xl:w-[35%] md:sticky md:top-40 self-start mb-8 md:mb-0"
+            className="w-full md:w-[40%] lg:w-[45%] xl:w-[35%] md:sticky md:top-40 self-start mb-2 md:mb-0"
           >
             <h3 className="text-[#8c8273] font-bold tracking-widest uppercase text-xs mb-4">
               Our Process

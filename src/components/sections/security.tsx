@@ -4,9 +4,9 @@ import { FeatureCard } from "../ui/feature-card"
 
 export function SecuritySection() {
   return (
-    <section className="pt-8 md:pt-12 pb-4 md:pb-8 bg-[#f9f8f6]">
+    <section className="pt-8 md:pt-12 pb-4 md:pb-4 bg-[#f9f8f6]">
       <div className="container mx-auto px-5 md:px-6 max-w-5xl">
-        <div className="text-center mb-10 md:mb-16">
+        <div className="text-center mb-6 md:mb-8">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -18,7 +18,7 @@ export function SecuritySection() {
           </motion.h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 md:gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 md:gap-4">
           <FeatureCard
             delay={0.1}
             title="End-to-end encryption for total privacy"
