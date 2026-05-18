@@ -7,11 +7,11 @@ const contactLinks = [
   {
     name: "Calendly",
     href: "https://calendly.com/jmdsolutions",
-    icon: <Calendar size={20} />,
-    color: "bg-[#006bff]",
-    hoverColor: "hover:bg-[#0056cc]",
-    ringColor: "hover:ring-[#006bff]",
-    shadow: "shadow-blue-500/25"
+    icon: <img src="/logos/calender-trimmed.png" alt="Calendar" className="w-[24px] h-[24px] object-contain opacity-90 invert" />,
+    color: "bg-[#1a1818]",
+    hoverColor: "hover:bg-black",
+    ringColor: "hover:ring-[#8c8273]",
+    shadow: "shadow-black/20"
   },
   {
     name: "Email",

@@ -10,10 +10,22 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "LegalRobe - The Complete Legal Workspace",
   description: "Simple, modern, and sleek. LegalRobe is perfect for legal teams.",
-  icons: {
-    icon: '/icon.png?v=4',
-    apple: '/apple-icon.png?v=4',
-  },
+  icons: [
+    {
+      rel: 'icon',
+      url: '/favicon-light.png?v=5',
+      media: '(prefers-color-scheme: light)',
+    },
+    {
+      rel: 'icon',
+      url: '/favicon-dark.png?v=5',
+      media: '(prefers-color-scheme: dark)',
+    },
+    {
+      rel: 'apple-touch-icon',
+      url: '/favicon-dark.png?v=5',
+    }
+  ],
 };
 
 import { LenisProvider } from "@/components/lenis-provider";
