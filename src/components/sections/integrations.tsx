@@ -1,6 +1,8 @@
 "use client"
 
+import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
+import { useTheme } from "next-themes"
 
 const baseLogos = [
   "/logos/Slack_Mark_Web.png",
@@ -22,7 +24,7 @@ const row5 = [baseLogos[1], baseLogos[5], baseLogos[4], baseLogos[0], baseLogos[
 // Duplicate sequence to ensure seamless loop
 const makeLongRow = (arr: string[]) => [...arr, ...arr, ...arr]
 
-const MarqueeRow = ({ items, reverse, duration }: { items: string[], reverse?: boolean, duration: number }) => {
+const MarqueeRow = ({ items, reverse, duration, isDark }: { items: string[], reverse?: boolean, duration: number, isDark: boolean }) => {
   return (
     <div className="flex gap-4 md:gap-5 w-max">
        <motion.div
@@ -32,7 +34,7 @@ const MarqueeRow = ({ items, reverse, duration }: { items: string[], reverse?: b
        >
          {/* Render items twice to ensure smooth infinite scroll (50% translation) */}
          {[...items, ...items].map((logo, i) => (
-           <div key={i} className="w-12 h-12 md:w-[72px] md:h-[72px] bg-white rounded-xl md:rounded-2xl flex items-center justify-center shadow-lg shrink-0">
+           <div key={i} className={`w-12 h-12 md:w-[72px] md:h-[72px] ${isDark ? 'bg-[#e5e5e5]' : 'bg-white'} rounded-xl md:rounded-2xl flex items-center justify-center shadow-lg shrink-0 transition-colors duration-300`}>
              <img src={logo} alt="Integration Logo" className="w-6 h-6 md:w-10 md:h-10 object-contain" />
            </div>
          ))}
@@ -42,8 +44,17 @@ const MarqueeRow = ({ items, reverse, duration }: { items: string[], reverse?: b
 }
 
 export function IntegrationsSection() {
+  const [mounted, setMounted] = useState(false)
+  const { resolvedTheme } = useTheme()
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  const isDark = mounted && resolvedTheme === "dark"
+
   return (
-    <section className="pt-8 md:pt-12 pb-12 md:pb-16 bg-[#f9f8f6]">
+    <section className="pt-8 md:pt-12 pb-4 md:pb-4 bg-[#f9f8f6] dark:bg-[#161b22] transition-colors duration-300">
       <div className="container mx-auto px-6 max-w-5xl">
         
         <div className="text-center mb-16">
@@ -51,7 +62,7 @@ export function IntegrationsSection() {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-[#8c8273] font-bold tracking-widest uppercase text-xs mb-4"
+            className="text-[#8c8273] dark:text-[#737373] font-bold tracking-widest uppercase text-xs mb-4 transition-colors duration-300"
           >
             FEATURES
           </motion.h3>
@@ -60,7 +71,7 @@ export function IntegrationsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-4xl md:text-[3.25rem] font-bold text-[#111827] tracking-tight leading-[1.1]"
+            className="text-4xl md:text-[3.25rem] font-bold text-[#111827] dark:text-[#fafafa] tracking-tight leading-[1.1] transition-colors duration-300"
           >
             Integrations
           </motion.h2>
@@ -71,38 +82,48 @@ export function IntegrationsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="bg-[#0a0a0a] rounded-[2.5rem] overflow-hidden flex flex-col md:flex-row shadow-[0_40px_80px_-20px_rgba(0,0,0,0.3)] relative min-h-[400px] md:min-h-[500px]"
+          className="bg-[#0a0a0a] transition-colors duration-300 rounded-[2.5rem] p-0 md:p-6 flex flex-col md:flex-row shadow-[0_40px_80px_-20px_rgba(0,0,0,0.3)] relative min-h-[400px] md:min-h-[500px] md:gap-6 md:items-stretch overflow-hidden md:overflow-visible"
         >
           
-          {/* Background Layer: Scrolling Logos */}
-          <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-            <div 
-              className="absolute top-1/2 left-1/2 md:left-0 -translate-x-1/2 md:-translate-x-0 -translate-y-1/2 w-[250%] sm:w-[200%] md:w-[150%] transform -rotate-2 scale-110 opacity-30 md:opacity-100 md:[mask-image:linear-gradient(to_right,black_10%,transparent_50%)] md:[WebkitMaskImage:linear-gradient(to_right,black_10%,transparent_50%)]"
-            >
-              <div className="flex flex-col gap-3 md:gap-5 md:-ml-[20%]">
-                <MarqueeRow items={makeLongRow(row1)} duration={35} />
-                <MarqueeRow items={makeLongRow(row2)} reverse duration={45} />
-                <MarqueeRow items={makeLongRow(row3)} duration={40} />
-                <MarqueeRow items={makeLongRow(row4)} reverse duration={38} />
-                <MarqueeRow items={makeLongRow(row5)} duration={42} />
+          {/* Mobile-only Background Layer: Scrolling Logos */}
+          <div className="block md:hidden absolute inset-0 z-0 overflow-hidden pointer-events-none [mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)] [WebkitMaskImage:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[220%] sm:w-[180%] transform -rotate-2 scale-105 opacity-30">
+              <div className="flex flex-col gap-3">
+                <MarqueeRow items={makeLongRow(row1)} duration={35} isDark={isDark} />
+                <MarqueeRow items={makeLongRow(row2)} reverse duration={45} isDark={isDark} />
+                <MarqueeRow items={makeLongRow(row3)} duration={40} isDark={isDark} />
+                <MarqueeRow items={makeLongRow(row4)} reverse duration={38} isDark={isDark} />
+                <MarqueeRow items={makeLongRow(row5)} duration={42} isDark={isDark} />
               </div>
             </div>
           </div>
 
-          {/* Foreground Layer: Text and Logo Overlay */}
-          <div className="w-full md:w-[50%] md:ml-auto flex flex-col items-center justify-center p-8 md:p-16 z-20 relative h-[400px] md:h-auto mt-auto md:mt-0 bg-transparent">
-            {/* On desktop, we want a transparent background to see the fade, but a solid one on the far right if needed */}
-            <div className="absolute inset-0 bg-[#0a0a0a] z-[-1] hidden md:block md:[mask-image:linear-gradient(to_right,transparent,#0a0a0a_10%)] md:[WebkitMaskImage:linear-gradient(to_right,transparent,#0a0a0a_10%)]"></div>
+          {/* Desktop-only Scrolling Logos Column (Left 50%) */}
+          <div className="hidden md:flex md:w-[50%] relative overflow-hidden rounded-[2rem] z-10 items-center justify-center min-h-[250px] md:min-h-none [mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)] [WebkitMaskImage:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]">
+            <div 
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] transform -rotate-2 scale-105 opacity-100"
+            >
+              <div className="flex flex-col gap-4">
+                <MarqueeRow items={makeLongRow(row1)} duration={35} isDark={isDark} />
+                <MarqueeRow items={makeLongRow(row2)} reverse duration={45} isDark={isDark} />
+                <MarqueeRow items={makeLongRow(row3)} duration={40} isDark={isDark} />
+                <MarqueeRow items={makeLongRow(row4)} reverse duration={38} isDark={isDark} />
+                <MarqueeRow items={makeLongRow(row5)} duration={42} isDark={isDark} />
+              </div>
+            </div>
+          </div>
 
+          {/* Foreground Text & Logo Card (Right 50% on Desktop, Overlay on Mobile) */}
+          <div className="w-full md:w-[50%] bg-transparent md:bg-[#121212] transition-colors duration-300 rounded-none md:rounded-[2rem] flex flex-col items-center justify-center p-8 md:p-12 z-20 relative h-[400px] md:h-auto overflow-visible md:overflow-hidden mt-auto md:mt-0">
             {/* Subtle glow behind the logo */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 md:w-64 h-48 md:h-64 bg-white/10 rounded-full blur-[60px] md:blur-[80px] pointer-events-none"></div>
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 md:w-64 h-48 md:h-64 bg-white/5 rounded-full blur-[60px] md:blur-[80px] pointer-events-none"></div>
             
             <motion.div 
               initial={{ scale: 0.8, opacity: 0 }}
               whileInView={{ scale: 1, opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4, type: "spring", stiffness: 200, damping: 20 }}
-              className="w-24 h-24 md:w-[136px] md:h-[136px] flex items-center justify-center mb-6 md:mb-10 relative z-10"
+              className="w-24 h-24 md:w-[120px] md:h-[120px] flex items-center justify-center mb-6 md:mb-8 relative z-10"
             >
                <img src="/logos/invert-logo.png" alt="LegalRobe Logo" className="w-[85%] h-[85%] object-contain drop-shadow-sm" />
             </motion.div>
@@ -112,7 +133,7 @@ export function IntegrationsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.6 }}
-              className="text-[#f9f8f6] text-[1.5rem] md:text-[2rem] font-bold text-center leading-[1.2] max-w-[280px] md:max-w-[320px] tracking-tight relative z-10 drop-shadow-md"
+              className="text-[#f9f8f6] transition-colors duration-300 text-[1.5rem] md:text-[1.85rem] font-bold text-center leading-[1.25] max-w-[280px] md:max-w-[340px] tracking-tight relative z-10 drop-shadow-md"
             >
               Streamline your workflow with a single, unified platform.
             </motion.h3>

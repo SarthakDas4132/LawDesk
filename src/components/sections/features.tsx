@@ -1,7 +1,8 @@
 "use client"
 
-import { useRef } from "react"
+import { useRef, useState, useEffect } from "react"
 import { motion, useScroll, useTransform } from "framer-motion"
+import { useTheme } from "next-themes"
 
 const features = [
   {
@@ -60,9 +61,25 @@ function FeatureBlock({ feature, index, isLast }: { feature: typeof features[0],
   // Change color exactly when the line reaches the center of the circle
   // On mobile, center is at 52px. On desktop, it's at 90px.
   // We'll use a rough estimation for the transition point (approx 0.15 - 0.2 of the block)
-  const dotBorder = useTransform(dotProgress, [0.1, 0.2], ["#d1d5db", "#111827"])
-  const dotBg = useTransform(dotProgress, [0.1, 0.2], ["#f9f8f6", "#111827"])
-  const textColor = useTransform(dotProgress, [0.1, 0.2], ["#9ca3af", "#ffffff"])
+  const [mounted, setMounted] = useState(false)
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  const { resolvedTheme } = useTheme()
+  const isDark = resolvedTheme === "dark"
+
+  const dotBorderLight = useTransform(dotProgress, [0.1, 0.2], ["#d1d5db", "#111827"])
+  const dotBorderDark = useTransform(dotProgress, [0.1, 0.2], ["#30363d", "#fafafa"])
+  const dotBorder = isDark && mounted ? dotBorderDark : dotBorderLight
+
+  const dotBgLight = useTransform(dotProgress, [0.1, 0.2], ["#f9f8f6", "#111827"])
+  const dotBgDark = useTransform(dotProgress, [0.1, 0.2], ["#0d1117", "#fafafa"])
+  const dotBg = isDark && mounted ? dotBgDark : dotBgLight
+
+  const textColorLight = useTransform(dotProgress, [0.1, 0.2], ["#9ca3af", "#ffffff"])
+  const textColorDark = useTransform(dotProgress, [0.1, 0.2], ["#8b949e", "#0d1117"])
+  const textColor = isDark && mounted ? textColorDark : textColorLight
 
   return (
     <div ref={ref} className={`pt-6 md:pt-10 ${isLast ? 'pb-0' : 'pb-6 md:pb-10'} relative group`}>
@@ -70,17 +87,17 @@ function FeatureBlock({ feature, index, isLast }: { feature: typeof features[0],
       {/* Vertical Line Container */}
       <div className={`absolute left-0 ${index === 0 ? 'top-[44px] md:top-[64px]' : 'top-0'} bottom-0 w-[2px] z-0`}>
         {/* Background (Grey) Segment */}
-        <div className="absolute inset-0 bg-[#e5e7eb]" />
+        <div className="absolute inset-0 bg-[#e5e7eb] dark:bg-[#333333] transition-colors duration-300" />
         
         {/* Animated Filling (Black) Segment */}
         <motion.div 
-          className="absolute inset-0 bg-[#111827] origin-top"
+          className="absolute inset-0 bg-[#111827] dark:bg-[#fafafa] origin-top transition-colors duration-300"
           style={{ scaleY: dotProgress }}
         />
 
         {/* Mask for the very last point to prevent line bleed */}
         {index === 7 && (
-          <div className="absolute top-[44px] md:top-[64px] bottom-0 w-4 -left-2 bg-[#f9f8f6] z-[5]" />
+          <div className="absolute top-[44px] md:top-[64px] bottom-0 w-4 -left-2 bg-[#f9f8f6] dark:bg-[#0d1117] transition-colors duration-300 z-[5]" />
         )}
       </div>
 
@@ -97,11 +114,11 @@ function FeatureBlock({ feature, index, isLast }: { feature: typeof features[0],
       </motion.div>
 
       {/* Content Block */}
-      <motion.div style={{ opacity, y }} className="pl-12 md:pl-20">
-        <h4 className="text-[1.4rem] md:text-[1.8rem] font-bold text-[#111827] tracking-tight mb-2 md:mb-3 leading-tight">
+      <motion.div style={{ opacity, y }} className="pl-12 md:pl-20 transition-colors duration-300">
+        <h4 className="text-[1.4rem] md:text-[1.8rem] font-bold text-[#111827] dark:text-[#fafafa] tracking-tight mb-2 md:mb-3 leading-tight transition-colors duration-300">
           {feature.title}
         </h4>
-        <p className="text-[14px] md:text-[1.05rem] text-[#4b5563] leading-relaxed max-w-2xl">
+        <p className="text-[14px] md:text-[1.05rem] text-[#4b5563] dark:text-[#a3a3a3] leading-relaxed max-w-2xl transition-colors duration-300">
           {feature.description}
         </p>
       </motion.div>
@@ -123,7 +140,7 @@ export function FeaturesSection() {
   const titleOpacity = useTransform(scrollYProgress, [0.8, 0.95], [1, 0])
 
   return (
-    <section id="features" className="pt-4 md:pt-40 pb-12 md:pb-16 bg-[#f9f8f6] relative">
+    <section id="features" className="pt-4 md:pt-40 pb-12 md:pb-16 bg-[#f9f8f6] dark:bg-[#0d1117] transition-colors duration-300 relative">
       <div className="container mx-auto px-6 lg:max-w-4xl xl:max-w-5xl relative">
         
         <div ref={containerRef} className="flex flex-col md:flex-row gap-4 md:gap-16 lg:gap-20 xl:gap-32 relative items-start">
@@ -133,13 +150,13 @@ export function FeaturesSection() {
             style={{ opacity: titleOpacity }}
             className="w-full md:w-[40%] lg:w-[45%] xl:w-[35%] md:sticky md:top-40 self-start mb-2 md:mb-0"
           >
-            <h3 className="text-[#8c8273] font-bold tracking-widest uppercase text-xs mb-4">
+            <h3 className="text-[#8c8273] dark:text-[#737373] font-bold tracking-widest uppercase text-xs mb-4 transition-colors duration-300">
               Our Process
             </h3>
-            <h2 className="text-4xl md:text-[3.5rem] font-bold text-[#111827] tracking-tight mb-6 leading-[1.05]">
+            <h2 className="text-4xl md:text-[3.5rem] font-bold text-[#111827] dark:text-[#fafafa] tracking-tight mb-6 leading-[1.05] transition-colors duration-300">
               Your Firm.<br />Your Intelligence.
             </h2>
-            <p className="text-[17px] md:text-[1.2rem] text-[#4b5563] leading-relaxed max-w-sm">
+            <p className="text-[17px] md:text-[1.2rem] text-[#4b5563] dark:text-[#a3a3a3] leading-relaxed max-w-sm transition-colors duration-300">
               Design the ideal workflow for your needs and LegalRobe handles the rest for you automatically.
             </p>
           </motion.div>

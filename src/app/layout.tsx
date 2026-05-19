@@ -31,6 +31,7 @@ export const metadata: Metadata = {
 import { LenisProvider } from "@/components/lenis-provider";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
+import { ThemeProvider } from "@/components/theme-provider";
 
 import { FloatingContact } from "@/components/ui/floating-contact";
 
@@ -45,17 +46,19 @@ export default function RootLayout({
       className={`${inter.variable} h-full antialiased`}
       suppressHydrationWarning
     >
-      <body suppressHydrationWarning className="min-h-full flex flex-col font-sans text-[#111827] bg-[#f9f8f6] overflow-x-hidden">
-        <LenisProvider>
-          <div className="flex flex-col min-h-screen">
-            <Navbar />
-            <div className="flex-1 flex flex-col">
-              {children}
+      <body suppressHydrationWarning className="min-h-full flex flex-col font-sans text-[#111827] dark:text-[#fafafa] bg-[#f9f8f6] dark:bg-[#0a0a0a] overflow-x-hidden transition-colors duration-300">
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
+          <LenisProvider>
+            <div className="flex flex-col min-h-screen">
+              <Navbar />
+              <div className="flex-1 flex flex-col">
+                {children}
+              </div>
+              <Footer />
+              <FloatingContact />
             </div>
-            <Footer />
-            <FloatingContact />
-          </div>
-        </LenisProvider>
+          </LenisProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

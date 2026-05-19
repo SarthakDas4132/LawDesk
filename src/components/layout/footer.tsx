@@ -2,36 +2,37 @@ import Link from "next/link"
 
 export function Footer() {
   return (
-    <footer className="bg-[#f9f8f6] pt-16 md:pt-24 pb-12">
+    <footer className="bg-[#f9f8f6] dark:bg-[#010409] transition-colors duration-300 pt-16 md:pt-24 pb-12">
       <div className="container mx-auto px-6 max-w-5xl">
 
         {/* CTA Section */}
         <div className="text-center mb-24">
-          <h2 className="text-4xl md:text-5xl font-bold text-[#111827] tracking-tight mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-[#111827] dark:text-[#fafafa] tracking-tight mb-4">
             Ready to get started
           </h2>
-          <p className="text-[#4b5563] text-[17px] mb-8">
+          <p className="text-[#4b5563] dark:text-[#a3a3a3] text-[17px] mb-8">
             Download LegalRobe for free. No credit card required.
           </p>
           <Link
             href="/contact-us"
-            className="inline-block bg-[#1a1818] hover:bg-black text-white text-[15px] font-bold px-8 py-3.5 rounded-full transition-colors"
+            className="inline-block bg-[#1a1818] dark:bg-[#fafafa] hover:bg-black dark:hover:bg-[#e5e5e5] text-white dark:text-[#0a0a0a] text-[15px] font-bold px-8 py-3.5 rounded-full transition-colors"
           >
             Try LegalRobe free
           </Link>
         </div>
 
         {/* Footer Box */}
-        <div className="bg-[#f2f0ea] rounded-[2rem] p-10 md:p-16 border border-[#e5e0d8] shadow-sm relative">
+        <div className="bg-[#f2f0ea] dark:bg-[#0d1117] transition-colors duration-300 rounded-[2rem] p-10 md:p-16 border border-[#e5e0d8] dark:border-[#30363d] shadow-sm relative">
           <div className="flex flex-col md:flex-row justify-between mb-16 gap-12">
 
             {/* Left Side */}
             <div>
-              <Link href="/" className="flex items-center gap-2 mb-4 text-[#111827] font-bold text-xl tracking-tight">
-                <img src="/logo-final-nobg.png" alt="LegalRobe" className="h-10 w-auto" />
+              <Link href="/" className="flex items-center gap-2 mb-4 text-[#111827] dark:text-[#fafafa] font-bold text-xl tracking-tight">
+                <img src="/logo-final-nobg.png" alt="LegalRobe Light" className="h-10 w-10 object-contain block dark:hidden" />
+                <img src="/logos/invert-logo.png" alt="LegalRobe Dark" className="h-10 w-10 object-contain hidden dark:block" />
                 LegalRobe
               </Link>
-              <p className="text-[#4b5563] mb-8 text-[15px]">
+              <p className="text-[#4b5563] dark:text-[#a3a3a3] mb-8 text-[15px]">
                 Made for modern legal teams.
               </p>
 
@@ -68,7 +69,7 @@ export function Footer() {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-9 h-9 md:w-10 md:h-10 shrink-0 rounded-full bg-[#1a1818] text-white flex items-center justify-center hover:bg-black transition-all duration-300 hover:scale-110 hover:shadow-[0_0_15px_rgba(0,0,0,0.3)] ring-offset-2 hover:ring-2 hover:ring-[#1a1818]"
+                    className="w-9 h-9 md:w-10 md:h-10 shrink-0 rounded-full bg-[#1a1818] dark:bg-[#161b22] text-white dark:text-[#ecf2f8] flex items-center justify-center hover:bg-black dark:hover:bg-[#30363d] transition-all duration-300 hover:scale-110 hover:shadow-[0_0_15px_rgba(0,0,0,0.3)] ring-offset-2 hover:ring-2 hover:ring-[#1a1818] dark:hover:ring-[#30363d]"
                     aria-label={social.name}
                   >
                     {social.icon}
@@ -80,28 +81,28 @@ export function Footer() {
             {/* Right Side Links */}
             <div className="flex gap-16 md:gap-24">
               <div>
-                <h4 className="text-[#111827] font-bold mb-6 text-xs uppercase tracking-wider">Pages</h4>
+                <h4 className="text-[#111827] dark:text-[#fafafa] font-bold mb-6 text-xs uppercase tracking-wider">Pages</h4>
                 <ul className="space-y-4">
-                  <li><Link href="/" className="text-[#4b5563] hover:text-[#111827] transition-colors text-[14px] font-medium">Home</Link></li>
-                  <li><Link href="/#features" className="text-[#4b5563] hover:text-[#111827] transition-colors text-[14px] font-medium">Features</Link></li>
-                  <li><Link href="/#pricing" className="text-[#4b5563] hover:text-[#111827] transition-colors text-[14px] font-medium">Pricing</Link></li>
-                  <li><Link href="/blog" className="text-[#4b5563] hover:text-[#111827] transition-colors text-[14px] font-medium">Blog</Link></li>
+                  <li><Link href="/" className="text-[#4b5563] dark:text-[#a3a3a3] hover:text-[#111827] dark:hover:text-[#fafafa] transition-colors text-[14px] font-medium">Home</Link></li>
+                  <li><Link href="/#features" className="text-[#4b5563] dark:text-[#a3a3a3] hover:text-[#111827] dark:hover:text-[#fafafa] transition-colors text-[14px] font-medium">Features</Link></li>
+                  <li><Link href="/#pricing" className="text-[#4b5563] dark:text-[#a3a3a3] hover:text-[#111827] dark:hover:text-[#fafafa] transition-colors text-[14px] font-medium">Pricing</Link></li>
+                  <li><Link href="/blog" className="text-[#4b5563] dark:text-[#a3a3a3] hover:text-[#111827] dark:hover:text-[#fafafa] transition-colors text-[14px] font-medium">Blog</Link></li>
                 </ul>
               </div>
 
               <div>
-                <h4 className="text-[#111827] font-bold mb-6 text-xs uppercase tracking-wider">Information</h4>
+                <h4 className="text-[#111827] dark:text-[#fafafa] font-bold mb-6 text-xs uppercase tracking-wider">Information</h4>
                 <ul className="space-y-4">
-                  <li><Link href="/contact-us" className="text-[#4b5563] hover:text-[#111827] transition-colors text-[14px] font-medium">Contact</Link></li>
-                  <li><Link href="/privacy-policy" className="text-[#4b5563] hover:text-[#111827] transition-colors text-[14px] font-medium">Privacy</Link></li>
-                  <li><Link href="/terms-of-use" className="text-[#4b5563] hover:text-[#111827] transition-colors text-[14px] font-medium">Terms of use</Link></li>
+                  <li><Link href="/contact-us" className="text-[#4b5563] dark:text-[#a3a3a3] hover:text-[#111827] dark:hover:text-[#fafafa] transition-colors text-[14px] font-medium">Contact</Link></li>
+                  <li><Link href="/privacy-policy" className="text-[#4b5563] dark:text-[#a3a3a3] hover:text-[#111827] dark:hover:text-[#fafafa] transition-colors text-[14px] font-medium">Privacy</Link></li>
+                  <li><Link href="/terms-of-use" className="text-[#4b5563] dark:text-[#a3a3a3] hover:text-[#111827] dark:hover:text-[#fafafa] transition-colors text-[14px] font-medium">Terms of use</Link></li>
                 </ul>
               </div>
             </div>
           </div>
 
-          <div className="pt-8 border-t border-[#e5e0d8]">
-            <p className="text-[#6b7280] text-sm">
+          <div className="pt-8 border-t border-[#e5e0d8] dark:border-[#30363d]">
+            <p className="text-[#6b7280] dark:text-[#737373] text-sm">
               © 2026 LegalRobe. All rights reserved.
             </p>
           </div>

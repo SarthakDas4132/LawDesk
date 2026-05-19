@@ -4,7 +4,7 @@ import { FeatureCard } from "../ui/feature-card"
 
 export function SecuritySection() {
   return (
-    <section className="pt-8 md:pt-12 pb-4 md:pb-4 bg-[#f9f8f6]">
+    <section className="pt-8 md:pt-12 pb-4 md:pb-4 bg-[#f9f8f6] dark:bg-[#0d1117] transition-colors duration-300">
       <div className="container mx-auto px-5 md:px-6 max-w-5xl">
         <div className="text-center mb-6 md:mb-8">
           <motion.h2 
@@ -12,7 +12,7 @@ export function SecuritySection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-3xl md:text-[3rem] font-bold text-[#111827] tracking-tight leading-tight text-balance mx-auto max-w-2xl"
+            className="text-3xl md:text-[3rem] font-bold text-[#111827] dark:text-[#fafafa] tracking-tight leading-tight text-balance mx-auto max-w-2xl transition-colors duration-300"
           >
             Never lose progress with secure cloud storage
           </motion.h2>

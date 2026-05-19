@@ -4,7 +4,7 @@ import { FeatureCard } from "../ui/feature-card"
 
 export function SimplicitySection() {
   return (
-    <section className="pt-0 pb-8 md:pb-12 bg-[#f9f8f6]">
+    <section className="pt-0 pb-8 md:pb-12 bg-[#f9f8f6] dark:bg-[#0d1117] transition-colors duration-300">
       <div className="container mx-auto px-5 md:px-6 max-w-5xl">
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-4">

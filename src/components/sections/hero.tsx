@@ -35,7 +35,7 @@ export function HeroSection() {
     <section className={`relative pt-28 pb-12 md:min-h-screen md:pt-36 ${isTablet ? 'md:pb-0 justify-start' : 'md:pb-32 justify-center'} flex flex-col items-center z-0 overflow-hidden bg-[#faf8f5]`}>
       {/* Responsive Background */}
       <div 
-        className="absolute inset-0 z-[-1] bg-cover bg-center bg-no-repeat pointer-events-none 
+        className="absolute inset-0 z-[-1] bg-cover bg-center bg-no-repeat pointer-events-none
                    bg-[url('/background/1080x1920.jpg')] 
                    sm:bg-[url('/background/1600x2100.jpg')]
                    md:bg-[url('/background/1200x1600.jpg')]
@@ -50,11 +50,11 @@ export function HeroSection() {
       <div className={`container mx-auto px-6 relative z-10 ${isTablet ? 'flex-1 flex flex-col' : ''}`}>
         <div className="text-center max-w-4xl mx-auto flex flex-col items-center">
           
-          <h1 className="text-[2.2rem] sm:text-[3.6rem] md:text-[3.8rem] lg:text-[4.2rem] xl:text-[4.8rem] leading-[1.1] font-bold text-[#111827] mb-5 md:mb-6 tracking-tight">
+          <h1 className="text-[2.2rem] sm:text-[3.6rem] md:text-[3.8rem] lg:text-[4.2rem] xl:text-[4.8rem] leading-[1.1] font-bold text-[#111827] mb-5 md:mb-6 tracking-tight transition-colors duration-300">
             All-in-One Legal Case <br className="hidden md:block" /> Workspace Management
           </h1>
 
-          <p className="text-lg md:text-[20px] text-[#374151] mb-8 md:mb-10 max-w-[800px] leading-relaxed font-medium px-4 md:px-0" style={{ opacity: 1, transform: "none" }}>
+          <p className="text-lg md:text-[20px] text-[#374151] mb-8 md:mb-10 max-w-[800px] leading-relaxed font-medium px-4 md:px-0 transition-colors duration-300" style={{ opacity: 1, transform: "none" }}>
             AI powered matter management for smarter law firms<br className="hidden md:block"/><br className="hidden md:block"/>
           </p>
 
@@ -96,7 +96,7 @@ export function HeroSection() {
               y: dashboardY,
               transformStyle: "preserve-3d" 
             }}
-            className="w-full bg-white rounded-3xl shadow-2xl overflow-hidden border border-white/40 origin-bottom"
+            className="w-full bg-white rounded-3xl shadow-2xl overflow-hidden border border-white/40 origin-bottom transition-colors duration-300"
           >
             {/* The uploaded dashboard image */}
             <img 
