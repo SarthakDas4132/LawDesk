@@ -1,6 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
+import { Magnetic } from "./magnetic"
 import { Calendar, Mail, MessageCircle } from "lucide-react"
 
 const contactLinks = [
@@ -42,24 +43,27 @@ export function FloatingContact() {
   return (
     <div className="fixed bottom-8 right-8 z-[100] flex flex-col gap-3 pointer-events-none">
       {contactLinks.map((link, i) => (
-        <motion.a
-          key={link.name}
-          href={link.href}
-          target="_blank"
-          rel="noopener noreferrer"
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.5 + (i * 0.1), duration: 0.5 }}
-          className={`pointer-events-auto w-12 h-12 overflow-hidden ${link.color} ${link.hoverColor} text-white rounded-[14px] flex items-center justify-center shadow-lg ${link.shadow} hover:scale-110 active:scale-95 transition-all duration-300 group ring-offset-2 hover:ring-2 ${link.ringColor}`}
-          aria-label={link.name}
-        >
-          {link.icon}
-          
-          {/* Tooltip */}
-          <span className="absolute right-full mr-3 px-3 py-1.5 bg-black/80 dark:bg-white/90 backdrop-blur-md text-white dark:text-black text-xs font-bold rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none uppercase tracking-wider">
-            {link.name}
-          </span>
-        </motion.a>
+        <Magnetic key={link.name} range={50} actionScale={1.1}>
+          <motion.a
+            href={link.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.5 + (i * 0.1), duration: 0.5 }}
+            className={`pointer-events-auto flex w-12 h-12 overflow-hidden ${link.color} ${link.hoverColor} text-white rounded-[14px] items-center justify-center shadow-lg ${link.shadow} transition-all duration-300 group ring-offset-2 hover:ring-2 ${link.ringColor}`}
+            aria-label={link.name}
+          >
+            <div className="pointer-events-none flex items-center justify-center">
+              {link.icon}
+            </div>
+            
+            {/* Tooltip */}
+            <span className="absolute right-full mr-3 px-3 py-1.5 bg-black/80 dark:bg-white/90 backdrop-blur-md text-white dark:text-black text-xs font-bold rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none uppercase tracking-wider">
+              {link.name}
+            </span>
+          </motion.a>
+        </Magnetic>
       ))}
     </div>
   )

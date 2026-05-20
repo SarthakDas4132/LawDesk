@@ -33,7 +33,7 @@ export function Navbar() {
           className={`pointer-events-auto flex items-center justify-between transition-all duration-500 w-full rounded-full ${
             isScrolled 
               ? "max-w-4xl bg-white/50 dark:bg-[#161b22]/80 backdrop-blur-2xl border border-white/50 dark:border-[#30363d]/50 shadow-[0_8px_32px_rgba(0,0,0,0.04)] px-5 py-2.5" 
-              : "max-w-7xl bg-white/10 dark:bg-[#161b22]/20 backdrop-blur-sm border border-white/10 dark:border-[#30363d]/20 px-6 py-3 shadow-none"
+              : "max-w-7xl bg-white/10 dark:bg-[#161b22]/80 backdrop-blur-md border border-white/10 dark:border-[#30363d]/30 px-6 py-3 shadow-none"
           }`}
         >
           <motion.div layout transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }} className="flex items-center gap-2 pl-2 z-50">
@@ -45,11 +45,11 @@ export function Navbar() {
           </motion.div>
           
           <motion.nav layout transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }} className="hidden lg:flex items-center gap-6 xl:gap-8">
-            <Link href="/#features" className="text-[14px] xl:text-[15px] font-medium text-[#111827] dark:text-[#a3a3a3] dark:hover:text-[#fafafa] hover:opacity-70 transition-colors">Features</Link>
-            <Link href="/#benefits" className="text-[14px] xl:text-[15px] font-medium text-[#111827] dark:text-[#a3a3a3] dark:hover:text-[#fafafa] hover:opacity-70 transition-colors">Benefits</Link>
-            <Link href="/#pricing" className="text-[14px] xl:text-[15px] font-medium text-[#111827] dark:text-[#a3a3a3] dark:hover:text-[#fafafa] hover:opacity-70 transition-colors">Pricing</Link>
-            <Link href="/blog" className="text-[14px] xl:text-[15px] font-medium text-[#111827] dark:text-[#a3a3a3] dark:hover:text-[#fafafa] hover:opacity-70 transition-colors">Blog</Link>
-            <Link href="/contact-us" className="text-[14px] xl:text-[15px] font-medium text-[#111827] dark:text-[#a3a3a3] dark:hover:text-[#fafafa] hover:opacity-70 transition-colors">Contact Us</Link>
+            <Link href="/#features" className="text-[14px] xl:text-[15px] font-medium text-[#111827] dark:text-[#d4d4d8] dark:hover:text-white hover:opacity-70 transition-colors">Features</Link>
+            <Link href="/#benefits" className="text-[14px] xl:text-[15px] font-medium text-[#111827] dark:text-[#d4d4d8] dark:hover:text-white hover:opacity-70 transition-colors">Benefits</Link>
+            <Link href="/#pricing" className="text-[14px] xl:text-[15px] font-medium text-[#111827] dark:text-[#d4d4d8] dark:hover:text-white hover:opacity-70 transition-colors">Pricing</Link>
+            <Link href="/blog" className="text-[14px] xl:text-[15px] font-medium text-[#111827] dark:text-[#d4d4d8] dark:hover:text-white hover:opacity-70 transition-colors">Blog</Link>
+            <Link href="/contact-us" className="text-[14px] xl:text-[15px] font-medium text-[#111827] dark:text-[#d4d4d8] dark:hover:text-white hover:opacity-70 transition-colors">Contact Us</Link>
           </motion.nav>
 
           <motion.div layout transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }} className="hidden lg:flex items-center gap-4">

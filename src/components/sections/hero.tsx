@@ -29,8 +29,6 @@ export function HeroSection() {
   // Reduced movement for tablet to keep it 'attached' to the desk
   const dashboardY = useTransform(scrollY, [0, 800], isTablet ? [0, 60] : [0, 200])
 
-
-
   return (
     <section className={`relative pt-28 pb-12 md:min-h-screen md:pt-36 ${isTablet ? 'md:pb-0 justify-start' : 'md:pb-32 justify-center'} flex flex-col items-center z-0 overflow-hidden bg-[#faf8f5]`}>
       {/* Responsive Background */}
@@ -43,10 +41,6 @@ export function HeroSection() {
                    xl:bg-[url('/background/2560x1440.jpg')]"
       />
       
-
-
-
-
       <div className={`container mx-auto px-6 relative z-10 ${isTablet ? 'flex-1 flex flex-col' : ''}`}>
         <div className="text-center max-w-4xl mx-auto flex flex-col items-center">
           

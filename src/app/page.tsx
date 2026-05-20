@@ -7,6 +7,7 @@ import { SimplicitySection } from "@/components/sections/simplicity";
 import { TestimonialsSection } from "@/components/sections/testimonials";
 import { IntegrationsSection } from "@/components/sections/integrations";
 import { PricingSection } from "@/components/sections/pricing";
+import { FAQSection } from "@/components/sections/faq";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
       <ShowcaseSection />
       <TestimonialsSection />
       <PricingSection />
+      <FAQSection />
     </main>
   );
 }
