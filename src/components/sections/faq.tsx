@@ -35,7 +35,7 @@ const faqs = [
   },
   {
     question: "Is there a free trial for the Premium plan?",
-    answer: "Yes. We offer a 14-day free trial of LegalRobe Premium with no credit card required. You'll have full access to all Premium features during the trial period, allowing you to experience the complete platform before committing to a subscription."
+    answer: "Yes. We offer a 7-day free trial of LegalRobe Premium with no credit card required. You'll have full access to all Premium features during the trial period, allowing you to experience the complete platform before committing to a subscription."
   },
   {
     question: "How does the Hearing Tracker work?",
@@ -63,14 +63,31 @@ function FAQItem({ question, answer, query, index }: { question: string; answer:
 
   const highlightedQuestion = useMemo(() => highlight(question, query), [question, query])
   const highlightedAnswer = useMemo(() => highlight(answer, query), [answer, query])
-
   return (
     <motion.div
       layout
       initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -10, scale: 0.98 }}
-      transition={{ duration: 0.35, delay: index * 0.04, ease: [0.16, 1, 0.3, 1] }}
+      animate={{ 
+        opacity: 1, 
+        y: 0,
+        transition: {
+          duration: 0.35,
+          delay: index * 0.04,
+          ease: [0.16, 1, 0.3, 1]
+        }
+      }}
+      exit={{ 
+        opacity: 0, 
+        height: 0, 
+        overflow: "hidden",
+        borderBottomWidth: 0,
+        transition: {
+          height: { duration: 0.3, ease: [0.16, 1, 0.3, 1], delay: 0 },
+          opacity: { duration: 0.2, delay: 0 },
+          borderBottomWidth: { duration: 0.1, delay: 0 }
+        }
+      }}
+      transition={{ layout: { duration: 0.35, ease: [0.16, 1, 0.3, 1] } }}
       className="border-b border-[#e5e0d8] dark:border-[#262626] last:border-b-0 transition-colors duration-300"
     >
       <button
@@ -206,7 +223,7 @@ export function FAQSection() {
           layout
           className="bg-[#eeebe3] dark:bg-[#161b22] rounded-3xl border border-[#e5e0d8] dark:border-[#30363d] px-6 md:px-10 transition-colors duration-300"
         >
-          <AnimatePresence mode="popLayout">
+          <AnimatePresence>
             {filtered.length > 0 ? (
               filtered.map((faq, i) => (
                 <FAQItem
@@ -250,7 +267,28 @@ export function FAQSection() {
               className="flex justify-center mt-6"
             >
               <button
-                onClick={() => setShowAll(v => !v)}
+                onClick={() => {
+                  if (showAll) {
+                    if ((window as any).lenis) {
+                      (window as any).lenis.scrollTo("#faq", { offset: -90 });
+                    } else {
+                      const faqSection = document.getElementById("faq");
+                      if (faqSection) {
+                        const yOffset = -90;
+                        const y = faqSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                        window.scrollTo({ top: y, behavior: "smooth" });
+                      }
+                    }
+                    
+                    // Delay setting showAll to false slightly so the scroll gets underway
+                    // and doesn't get instantly clamped/snapped by the height collapse!
+                    setTimeout(() => {
+                      setShowAll(false);
+                    }, 150);
+                  } else {
+                    setShowAll(true);
+                  }
+                }}
                 className="inline-flex items-center gap-2 px-7 py-3 rounded-full border-2 border-[#1a1818] dark:border-[#fafafa] text-[#111827] dark:text-[#fafafa] text-[14px] font-bold hover:bg-[#1a1818] hover:text-white dark:hover:bg-[#fafafa] dark:hover:text-[#0a0a0a] transition-all duration-300"
               >
                 <motion.span

@@ -25,8 +25,10 @@ export async function POST(request: Request) {
     // For now, just log it and simulate success
     console.log(`[Waitlist Entry] New signup: ${email}`);
     
-    // Simulate a slight network delay so the loading spinner looks good
-    await new Promise((resolve) => setTimeout(resolve, 800));
+    // Simulate a slight network delay so the loading spinner looks good in development
+    if (process.env.NODE_ENV === 'development') {
+      await new Promise((resolve) => setTimeout(resolve, 800));
+    }
 
     return NextResponse.json(
       { message: 'Successfully joined waitlist' },

@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import { motion, useScroll, useMotionValueEvent, AnimatePresence } from "framer-motion"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 import { Menu, X } from "lucide-react"
 import { ThemeToggle } from "@/components/ui/theme-toggle"
 
@@ -10,6 +11,7 @@ export function Navbar() {
   const { scrollY } = useScroll()
   const [isScrolled, setIsScrolled] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
+  const pathname = usePathname()
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     setIsScrolled(latest > 20) // trigger a bit earlier
@@ -23,6 +25,46 @@ export function Navbar() {
       document.body.style.overflow = "auto"
     }
   }, [isOpen])
+
+  const getActiveDesktopClass = (href: string) => {
+    const base = "text-[14px] xl:text-[15px] font-medium transition-colors hover:opacity-70"
+    let isActive = false
+    if (href === "/") {
+      isActive = pathname === "/"
+    } else if (href.startsWith("/#")) {
+      isActive = pathname === "/"
+    } else if (href === "/blog") {
+      isActive = pathname.startsWith("/blog")
+    } else if (href === "/contact-us") {
+      isActive = pathname === "/contact-us"
+    }
+
+    return `${base} ${
+      isActive
+        ? "text-amber-800 dark:text-amber-500 font-bold"
+        : "text-[#111827] dark:text-[#d4d4d8] dark:hover:text-white"
+    }`
+  }
+
+  const getActiveMobileClass = (href: string) => {
+    const base = "text-[16px] font-bold transition-colors"
+    let isActive = false
+    if (href === "/") {
+      isActive = pathname === "/"
+    } else if (href.startsWith("/#")) {
+      isActive = pathname === "/"
+    } else if (href === "/blog") {
+      isActive = pathname.startsWith("/blog")
+    } else if (href === "/contact-us") {
+      isActive = pathname === "/contact-us"
+    }
+
+    return `${base} ${
+      isActive
+        ? "text-amber-800 dark:text-amber-500"
+        : "text-[#4b5563] dark:text-[#a3a3a3] hover:text-[#111827] dark:hover:text-[#fafafa]"
+    }`
+  }
 
   return (
     <>
@@ -45,11 +87,11 @@ export function Navbar() {
           </motion.div>
           
           <motion.nav layout transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }} className="hidden lg:flex items-center gap-6 xl:gap-8">
-            <Link href="/#features" className="text-[14px] xl:text-[15px] font-medium text-[#111827] dark:text-[#d4d4d8] dark:hover:text-white hover:opacity-70 transition-colors">Features</Link>
-            <Link href="/#benefits" className="text-[14px] xl:text-[15px] font-medium text-[#111827] dark:text-[#d4d4d8] dark:hover:text-white hover:opacity-70 transition-colors">Benefits</Link>
-            <Link href="/#pricing" className="text-[14px] xl:text-[15px] font-medium text-[#111827] dark:text-[#d4d4d8] dark:hover:text-white hover:opacity-70 transition-colors">Pricing</Link>
-            <Link href="/blog" className="text-[14px] xl:text-[15px] font-medium text-[#111827] dark:text-[#d4d4d8] dark:hover:text-white hover:opacity-70 transition-colors">Blog</Link>
-            <Link href="/contact-us" className="text-[14px] xl:text-[15px] font-medium text-[#111827] dark:text-[#d4d4d8] dark:hover:text-white hover:opacity-70 transition-colors">Contact Us</Link>
+            <Link href="/#features" className={getActiveDesktopClass("/#features")}>Features</Link>
+            <Link href="/#benefits" className={getActiveDesktopClass("/#benefits")}>Benefits</Link>
+            <Link href="/#pricing" className={getActiveDesktopClass("/#pricing")}>Pricing</Link>
+            <Link href="/blog" className={getActiveDesktopClass("/blog")}>Blog</Link>
+            <Link href="/contact-us" className={getActiveDesktopClass("/contact-us")}>Contact Us</Link>
           </motion.nav>
 
           <motion.div layout transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }} className="hidden lg:flex items-center gap-4">
@@ -83,11 +125,11 @@ export function Navbar() {
             className="fixed left-4 right-4 top-24 z-40 lg:hidden flex flex-col items-center bg-white/95 dark:bg-[#141414]/95 backdrop-blur-3xl rounded-[2rem] border border-[#e5e0d8] dark:border-[#262626] shadow-2xl p-6"
           >
             <nav className="flex flex-col items-center gap-5 mb-8 w-full">
-              <Link href="/#features" onClick={() => setIsOpen(false)} className="text-[16px] font-bold text-[#4b5563] dark:text-[#a3a3a3] hover:text-[#111827] dark:hover:text-[#fafafa]">Features</Link>
-              <Link href="/#benefits" onClick={() => setIsOpen(false)} className="text-[16px] font-bold text-[#4b5563] dark:text-[#a3a3a3] hover:text-[#111827] dark:hover:text-[#fafafa]">Benefits</Link>
-              <Link href="/#pricing" onClick={() => setIsOpen(false)} className="text-[16px] font-bold text-[#4b5563] dark:text-[#a3a3a3] hover:text-[#111827] dark:hover:text-[#fafafa]">Pricing</Link>
-              <Link href="/blog" onClick={() => setIsOpen(false)} className="text-[16px] font-bold text-[#4b5563] dark:text-[#a3a3a3] hover:text-[#111827] dark:hover:text-[#fafafa]">Blog</Link>
-              <Link href="/contact-us" onClick={() => setIsOpen(false)} className="text-[16px] font-bold text-[#4b5563] dark:text-[#a3a3a3] hover:text-[#111827] dark:hover:text-[#fafafa]">Contact Us</Link>
+              <Link href="/#features" onClick={() => setIsOpen(false)} className={getActiveMobileClass("/#features")}>Features</Link>
+              <Link href="/#benefits" onClick={() => setIsOpen(false)} className={getActiveMobileClass("/#benefits")}>Benefits</Link>
+              <Link href="/#pricing" onClick={() => setIsOpen(false)} className={getActiveMobileClass("/#pricing")}>Pricing</Link>
+              <Link href="/blog" onClick={() => setIsOpen(false)} className={getActiveMobileClass("/blog")}>Blog</Link>
+              <Link href="/contact-us" onClick={() => setIsOpen(false)} className={getActiveMobileClass("/contact-us")}>Contact Us</Link>
             </nav>
 
             <div className="flex flex-col gap-3 w-full max-w-[280px]">

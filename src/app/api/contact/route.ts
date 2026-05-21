@@ -30,8 +30,10 @@ export async function POST(request: Request) {
     console.log(`Firm: ${firmName}`);
     console.log(`Message: ${message}`);
     
-    // Simulate a network delay so the loading state is visible
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    // Simulate a network delay so the loading state is visible in development
+    if (process.env.NODE_ENV === 'development') {
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+    }
 
     return NextResponse.json(
       { message: 'Message sent successfully' },

@@ -57,6 +57,7 @@ export default async function BlogPostPage({
               src={post.image} 
               alt={post.title} 
               fill 
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1000px"
               className="object-contain p-2 md:p-8"
               priority
             />

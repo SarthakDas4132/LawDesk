@@ -2,6 +2,7 @@ import { HeroSection } from "@/components/sections/hero";
 import { MarqueeSection } from "@/components/sections/marquee";
 import { ShowcaseSection } from "@/components/sections/showcase";
 import { FeaturesSection } from "@/components/sections/features";
+import { BenefitsSection } from "@/components/sections/benefits";
 import { SecuritySection } from "@/components/sections/security";
 import { SimplicitySection } from "@/components/sections/simplicity";
 import { TestimonialsSection } from "@/components/sections/testimonials";
@@ -15,6 +16,7 @@ export default function Home() {
       <HeroSection />
       <MarqueeSection />
       <FeaturesSection />
+      <BenefitsSection />
       <IntegrationsSection />
       <SecuritySection />
       <SimplicitySection />
